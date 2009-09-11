@@ -20,3 +20,6 @@ change you made doesn't appear in the forum view after reloading.
 == About ==
 
 The skin is based on FUDforum's default skin and licensed under GPLv2.
+
+Development screenshots can be seen in
+http://www.flickr.com/photos/qubodup/sets/72157622338180490/
