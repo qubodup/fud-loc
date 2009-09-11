@@ -1,0 +1,88 @@
+/**
+* copyright            : (C) 2009 Iwan Gabovitch
+* email                : qubodup@gmail.com
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: logedin.tmpl,v 1.32 2009/01/29 18:37:29 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: logedin.inc.t; output: !logedin.inc;}
+{REF: ulink.tmpl}
+
+{MAIN_SECTION: loged_in_list loggedin user list}
+{TEMPLATE-DATA: logedin}
+{TEMPLATE-DATA: forum_info}
+{MAIN_SECTION: END}
+
+{SECTION: logedin}
+{IF: ($FUD_OPT_1 & 536870912)}{TEMPLATE: i_spy}{ENDIF}
+<ul class="sidebarlist">
+	<li>{IF: ($FUD_OPT_1 & 8388608 || (_uid && $FUD_OPT_1 & 4194304) || $usr->users_opt & 1048576)}{TEMPLATE: member_counter}{ELSE}{MSG: user_counter}{ENDI}</li>
+	<li>{MSG: status_line_online}</li>
+	<li>{MSG: status_line_invisible}</li>
+	<li>{MSG: status_line_guests}</li>
+	<li>{MSG: most_users_online}</li>
+</ul>
+<ul class="sidebarlist">
+	{VAR: logedin}
+</ul>
+{SECTION: END}
+
+{SECTION: i_spy logged in users list}
+<ul class="sidebarlist">
+	{IF: _uid || !($FUD_OPT_3 & 131072)}<li><a href="{TEMPLATE: i_spy_lnk}">{MSG: what_ppl_doing}</a></li>{ENDIF}
+	{IF: _uid || !($FUD_OPT_3 & 262144)}<li><a href="{TEMPLATE: i_spy_lnk1}">{MSG: logedin_todays_visitors}</a></li>{ENDIF}
+</ul>
+{SECTION: END}
+
+{SECTION: online_user_link}
+<li><a href="{TEMPLATE: online_user_link_lnk}">{VAR: v}</a></li>
+{SECTION: END}
+
+{SECTION: last_msg latest message on the forum}
+<li>{MSG: logedin_latest_post}</li>
+<li><a href="{TEMPLATE: last_msg_lnk}">{VAR: st_obj->last_msg_subject}</a></li>
+{SECTION: END}
+
+{SECTION: forum_info}
+<ul class="sidebarlist">
+{MSG: message_counter}
+</ul>
+<ul class="sidebarlist">
+<li>{MSG: newest_user}</li>
+<li><a href="{TEMPLATE: forum_info_lnk}">{VAR: st_obj->last_user_alias}</a></li>
+<li>{IF: $last_msg_id}{TEMPLATE: last_msg}</li>
+{ENDIF}
+{SECTION: END}
+
+{SECTION: member_counter_lnk}
+{ROOT}?t=finduser&amp;btn_submit=Find&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: member_counter link to member search}
+<a href="{TEMPLATE: member_counter_lnk}">{MSG: user_counter}</a>
+{SECTION: END}
+
+{SECTION: i_spy_lnk}
+{ROOT}?t=actions&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: i_spy_lnk1}
+{ROOT}?t=online_today&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: online_user_link_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: k}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: last_msg_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: last_msg_id}&amp;{DEF: _rsid}#msg_{VAR: last_msg_id}
+{SECTION: END}
+
+{SECTION: forum_info_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: st_obj->last_user_id}&amp;{DEF: _rsid}
+{SECTION: END}

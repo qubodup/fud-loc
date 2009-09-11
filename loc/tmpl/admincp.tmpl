@@ -1,0 +1,63 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* copyright : 2009 Iwan Gabovitch <qubodup@gmail.com>
+* $Id: admincp.tmpl,v 1.20 2009/01/29 18:37:29 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: admincp.inc.t; output: @admincp.inc;}
+
+{MAIN_SECTION: admin_cp Administrator Control Panel}
+<ul class="sidebarlist">
+	{TEMPLATE-DATA: mod_que}
+	{TEMPLATE-DATA: reported_msgs}
+	{TEMPLATE-DATA: thr_exch}
+	{TEMPLATE-DATA: custom_avatar_queue}
+	{TEMPLATE-DATA: group_mgr}
+	{TEMPLATE-DATA: accounts_pending_approval}
+</ul>
+{MAIN_SECTION: END}
+
+{SECTION: custom_avatar_queue (appears if there are custom avatars in que for approval)}
+<li><a href="adm/admapprove_avatar.php?S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: custom_avatar_queue}</a> <span class="urgent">({VAR: avatar_count})</span></li>
+{SECTION: END}
+
+{SECTION: group_mgr_lnk}
+{ROOT}?t=groupmgr&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: group_mgr link to the group manager for admin & group managers}
+<li><a href="{TEMPLATE: group_mgr_lnk}">{MSG: group_mgr}</a></li>
+{SECTION: END}
+
+{SECTION: reported_msgs_lnk}
+{ROOT}?t=reported&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: reported_msgs link to reported messages form, with an idicator that shows the # of reported messages}
+<li><a href="{TEMPLATE: reported_msgs_lnk}">{MSG: reported_messages}</a> <span class="urgent">({VAR: report_count})</span></li>
+{SECTION: END}
+
+{SECTION: thr_exch_lnk}
+{ROOT}?t=thr_exch&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: thr_exch a link to thread exchange, with an idicator of the # of threads waiting approval}
+<li><a href="{TEMPLATE: thr_exch_lnk}">{MSG: thread_exchange}</a> <span class="urgent">({VAR: thr_exchc})</span></li>
+{SECTION: END}
+
+{SECTION: mod_que_lnk}
+{ROOT}?t=modque&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: mod_que link to form for approving messages in moderated forums}
+<li><a href="{TEMPLATE: mod_que_lnk}">{MSG: moderation_queue}</a> <span class="urgent">({VAR: approve_count})</span></li>
+{SECTION: END}
+
+{SECTION: accounts_pending_approval accounts pending administrator's approval}
+<li><a href="adm/admaccapr.php?S={DEF: s}&amp;SQ={GVAR: sq}">{MSG: accounts_pending_approval}</a> <span class="urgent">({VAR: accounts_pending_approval})</span></li>
+{SECTION: END}

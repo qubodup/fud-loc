@@ -1,0 +1,55 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: pmsg_dump.tmpl,v 1.5 2009/01/29 18:37:29 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: pmsg_dump.php.t; output: pmsg_dump.php;}
+{REF: security.tmpl}
+{REF: private.tmpl}
+{REF: allowed_user_lnk.tmpl}
+
+{SECTION: pmsg_dump_msg_entry single private message entry for message dump}
+<tr><td><table cellspacing="0" cellpadding="0" class="MsgTable">
+<tr>
+<td class="MsgR1 al vt"><b>{MSG: subject}:</b> {VAR: obj->subject}</td>
+<td class="MsgR1 vt ar DateText"><b>{MSG: by}</b> {VAR: obj->alias} <b>{MSG: pmsg_on}</b> {TEMPLATE: dmsg_post_date}</td>
+</tr>
+<tr><td class="MsgR3" colspan="2">{FUNC: read_pmsg_body($obj->foff, $obj->length)}</table></td></tr>
+{SECTION: END}
+
+{PAGE: PMSG_DUMP_PAGE private messages control panel}
+{TEMPLATE: header_pmsg_dump}
+<body>
+<table class="wa" border="0" cellspacing="3" cellpadding="5"><tr><td class="ForumBackground">
+<table class="wa">
+{VAR: out}
+</table>
+</tr></table>
+</body>
+</html>
+{PAGE: END}
+
+{SECTION: header_pmsg_dump header for message dump}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+{META-CONTENT-LANGUAGE}
+<title>{GVAR: FORUM_TITLE} {VAR: TITLE_EXTRA}</title>
+<style type="text/css">
+{FUNC: @file_get_contents($GLOBALS["WWW_ROOT_DISK"]."theme/".$GLOBALS["usr"]->theme."/forum.css")}
+</style>
+</head>
+{SECTION: END}
+
+{SECTION: pm_err_nopm_title}
+{MSG: pm_err_nopm_title}
+{SECTION: END}
+
+{SECTION: pm_err_nopm_msg}
+{MSG: pm_err_nopm_msg}
+{SECTION: END}

@@ -1,0 +1,247 @@
+/**
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* copyright : 2009 Iwan Gabovitch <qubodup@gmail.com>
+* $Id: index.tmpl,v 1.90 2009/02/22 00:00:37 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+**/
+
+{PHP_FILE: input: index.php.t; output: index.php;}
+{REF: security.tmpl}
+{REF: logedin.tmpl}
+{REF: admincp.tmpl}
+{REF: header.tmpl}
+{REF: footer.tmpl}
+{REF: curtime.tmpl}
+{REF: usercp.tmpl}
+{REF: stats.tmpl}
+{REF: show.tmpl}
+{REF: quicklogin.tmpl}
+
+{SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
+<td>
+	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><!--<img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" alt="" border="0" />--></a>{ENDIFI}
+	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><!--<img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0" alt="" style="vertical-align: top; float: right;" />--></a>{ENDIFI}
+</td>
+{SECTION: END}
+
+{SECTION: index_category_allow_collapse_Y collapsable category entry}
+<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+	<td colspan="2" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+		<a href="{TEMPLATE: index_to_cat_lnk}">{VAR: i[1]}</a>
+		{VAR: i[2]}
+	</td?
+	<td class="{IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}">
+	</td>
+	{TEMPLATE: index_cat_up_down_arrows}
+</tr>
+{SECTION: END}
+
+{SECTION: index_category_allow_collapse_N uncollapsable category entry}
+<tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
+	<td colspan="2" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+		<span><a href="{TEMPLATE: index_to_cat_lnk}">{VAR: i[1]}</a></span> {VAR: i[2]}
+	</td>
+	{TEMPLATE: index_cat_up_down_arrows}
+</tr>
+{SECTION: END}
+
+{SECTION: moderators moderator list}
+<div>{MSG: moderators} {VAR: moderators}</div>
+{SECTION: END}
+
+{SECTION: index_forum_entry forum entry row}
+<tr class="{VAR: forum_read_indicator} child-c{VAR: r[5]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}">
+	<td style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><a {IF: $r[6]}style="background-image: url(images/forum_icons/{VAR: r[6]});"{ENDIF} href="{TEMPLATE: index_forum_entry_lnk}" class="index_list_forum_title">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
+	<td>{VAR: r[12]} {MSG: posts}<br />{VAR: r[13]} {MSG: threads}</td>
+	<td><a href="{TEMPLATE: last_post_lnk}">{IF: $r[8]}{TEMPLATE: index_last_post_date}</a>
+<!--{MSG: by}{IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END}-->
+<!--<img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" />-->
+{ELSE}{MSG: na}{END}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: forum_with_no_view_perms}
+<tr style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}" class="child-c{VAR: r[5]}">
+	<td colspan="4">{VAR: r[10]}{FUNC: ($r[11] ? '<br />'.$r[11] : '')}</td>
+</tr>
+{SECTION: END}
+
+{SECTION: forum_read}
+forum_read
+{SECTION: END}
+<!--<img title="{MSG: forum_old_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_old_messages}" />-->
+
+{SECTION: forum_unread}
+forum_not_read
+{SECTION: END}
+<!--<img title="{MSG: forum_new_messages}" src="{THEME_IMAGE_ROOT}/new_content{DEF: img_ext}" alt="{MSG: forum_new_messages}" />-->
+
+{SECTION: forum_no_indicator no new message indicator}
+forum_no_messages
+{SECTION: END}
+<!--<img title="{MSG: forum_none_messages}" src="{THEME_IMAGE_ROOT}/existing_content{DEF: img_ext}" alt="{MSG: forum_none_messages}" />-->
+
+{SECTION: profile_link_user}
+<a href="{TEMPLATE: profile_link_user_lnk}">{VAR: r[4]}</a>
+{SECTION: END}
+
+{SECTION: profile_link_mod}
+<a href="{TEMPLATE: profile_link_mod_lnk}">{VAR: v}</a> &nbsp;
+{SECTION: END}
+
+{SECTION: no_mod}
+&nbsp;
+{SECTION: END}
+
+{SECTION: profile_link_anon}
+{GVAR: ANON_NICK}
+{SECTION: END}
+
+{PAGE: INDEX_PAGE}
+{TEMPLATE: header}
+<div id="sidebar">
+	{TEMPLATE: usercp}
+	{TEMPLATE: show_links}
+	{TEMPLATE-DATA: admin_cp}
+	{IF: $logedin || $forum_info}{TEMPLATE: loged_in_list}{ENDIF}
+</div>
+<div id="main">
+	<!--{IF: _uid}<div><span id="welcome_message_user">{MSG: welcome_message}</span></div>{ENDIF}-->
+	{TEMPLATE: table_controls}
+	<table class="forums_table">
+		<!--<tr>
+			<th>{MSG: index_forum}</th>
+			<th>{MSG: posts}/{MSG: threads}</th>
+			<th>{MSG: last_post}</th>
+		</tr>-->
+		{TEMPLATE-DATA: forum_list_table_data}
+	</table>
+	{TEMPLATE: table_controls}
+	{IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
+	<!--{TEMPLATE: curtime}
+	{TEMPLATE-DATA: page_stats}-->
+</div>
+	{TEMPLATE: javascript}
+	{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: table_controls}
+	<div class="table_controls">
+		{IF: cat_path == 0 }<a href="{TEMPLATE: idx_cat_path_lnk}">{MSG: home}</a>{ENDIF}
+		{TEMPLATE-DATA: cat_path}
+		{IF: _uid}
+			<a class="forum_marker" href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>
+		{ENDIF}
+	</div>
+{SECTION: END}
+
+{SECTION: index_RSS}
+{IF: $FUD_OPT_2 & 1048576}
+<link rel="alternate" type="application/rss+xml" title="{MSG: thread_syndicate}" href="{GVAR: WWW_ROOT}rdf.php?mode=m&amp;l=1&amp;basic=1" />
+{ENDIFI}
+{SECTION: END}
+
+{SECTION: index_update}
+{MSG: index_update}
+{SECTION: END}
+
+{SECTION: index_title}
+{MSG: index_title}
+{SECTION: END}
+
+{SECTION: last_post_lnk}
+{ROOT}?t={DEF: d_thread_view}&amp;goto={VAR: r[8]}&amp;{DEF: _rsid}#msg_{VAR: r[8]}
+{SECTION: END}
+
+{SECTION: profile_link_user_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: r[3]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: profile_link_mod_lnk}
+{ROOT}?t=usrinfo&amp;id={VAR: k}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: mark_all_read_lnk}
+{ROOT}?t=markread&amp;{DEF: _rsid}&amp;SQ={GVAR: sq}&amp;cat={VAR: cat_id}
+{SECTION: END}
+
+{SECTION: index_to_cat_lnk}
+{ROOT}?t=index&amp;cat={VAR: k}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: index_forum_entry_lnk}
+{ROOT}?t={DEF: t_thread_view}&amp;frm_id={VAR: r[7]}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_forum_path}
+<a href="{TEMPLATE: idx_forum_path_lnk}">{VAR: cidxc[$cid][1]}</a>
+{SECTION: END}
+
+{SECTION: idx_forum_path_lnk}
+{ROOT}?t=i&amp;cat={VAR: cid}&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_cat_path}
+{TEMPLATE-DATA: cat_path} &raquo; <a href="{ROOT}?t=i&amp;cat={VAR: cat_id}&amp;{DEF: _rsid}">{VAR: cidxc[$cat_id][1]}</a>
+{SECTION: END}
+
+{SECTION: idx_cat_path_lnk}
+{ROOT}?t=i&amp;{DEF: _rsid}
+{SECTION: END}
+
+{SECTION: idx_compact_forum_entry}
+{IF: _uid && $r[14] < $r[2] && $usr->last_read < $r[2]}**{ENDIFI}<a href="{TEMPLATE: index_forum_entry_lnk}">{VAR: r[10]}</a>
+{SECTION: END}
+
+{SECTION: idx_compact_forum_row}
+<tr><td colspan="3">{MSG: idx_compact_forum_row}{VAR: cbuf}</td></tr>
+{SECTION: END}
+
+{SECTION: javascript}
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	$(document).ready(function() {
+	  var togglePlus = '{MSG: maximize_category}';
+	  var toggleMinus  = '{MSG: minimize_category}';
+
+	  $(".collapsed").prepend('<input type="button" value="' + togglePlus + '" /> ')
+					 .addClass("collapsable");
+	  $(".expanded").prepend('<input type="button" value="' + toggleMinus + '" /> ')
+				.addClass("collapsable");
+
+	  $("input", $(".collapsable")).addClass('clickable')
+	  .css("cursor", "pointer")
+	  .click(function() {
+		var toggleSrc = $(this).attr('value');
+		var cat = $(this).parents("tr").attr('id');
+		var on;
+
+		if ( toggleSrc.indexOf(toggleMinus) >= 0 ) {	// Hide cat
+		  $(this)//.attr('value', togglePlus)
+				 .attr("value", "{MSG: maximize_category}")
+				 .parents('tr').siblings(".child-"+cat).fadeOut('fast');
+		  on = 1;
+		} else{				// Show cat
+		  $(this)//.attr('value', toggleMinus)
+				 .attr("value", "{MSG: minimize_category}")
+				 .parents('tr').siblings(".child-"+cat).fadeIn('fast');
+		  on = 0;
+		};
+
+	{IF: _uid}
+		$.ajax({
+		   type: "POST",
+		   url: "index.php?t=cat_focus",
+		   data: "SQ={VAR: usr->sq}&S={DEF: s}&c="+cat.substr(1)+"&on="+on
+		 });
+	{ENDIF}
+
+	  });
+	})
+	/* ]]> */
+	</script>
+{SECTION: END}

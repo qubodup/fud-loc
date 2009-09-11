@@ -1,0 +1,35 @@
+/***************************************************************************
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* copyright            : (C) 2009 Iwan Gabovitch <qubodup@gmail.com>
+* $Id: footer.tmpl,v 1.20 2009/01/29 18:37:29 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+***************************************************************************/
+
+{MAIN_SECTION: footer forum's footer}
+			<div id="footer">
+				<a href="mailto:{GVAR: ADMIN_EMAIL}">{MSG: forum_contact}</a>
+&nbsp;&nbsp;
+				<a href="http://qubodup.net">Design</a>
+&nbsp;&nbsp;
+				<a href="http://fudforum.org/">FUDforum {GVAR: FORUM_VERSION}</a>
+			</div><!--footer end-->
+		</div><!--content end-->
+	</div><!--wrapper end-->
+</body>
+</html>
+{MAIN_SECTION: END}
+
+{MAIN_SECTION: footer_plain forum's footer for plain pages such as popups}
+		</div><!--content end-->
+	</div><!--wrapper end-->
+</body>
+</html>
+{MAIN_SECTION: END}
+
+{SECTION: footer_lnk}
+{ROOT}?t=index&amp;{DEF: _rsid}
+{SECTION: END}

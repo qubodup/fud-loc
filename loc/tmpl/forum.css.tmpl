@@ -1,0 +1,186 @@
+/***************************************************************************
+* copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
+* email                : forum@prohost.org
+* $Id: forum.css.tmpl,v 1.81 2009/02/22 00:00:37 frank Exp $
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; version 2 of the License.
+***************************************************************************/
+/* REMOVE THIS LATER
+{PHP_FILE: input: forum.css.t; output: forum.css;}
+
+{PAGE: FORUM_CSS forum's css styles}
+/* REMOVE THIS LATER */
+
+/* BODY & WRAPPER */
+
+body {
+	background: #222222;
+	color: #aaa;
+	font-size: x-small;
+	font-family: Sans-Serif;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#wrapper {
+	font-size: 137%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#content {
+	width: 100%;
+}
+
+/* LINKS */
+
+a:link, a:visited, a:active, a.PagerLink {
+	/*color: #006699;
+	text-decoration: underline;*/
+	text-decoration: none;
+}
+
+a:link img, a:visited img {
+	/*border-color: black;*/
+	border-style: dotted;
+	border-width: 0 0 1px 0;
+}
+
+/* PANEL */
+
+#panel {
+	border-bottom: 1px solid #333333;
+	padding: 3px;
+}
+
+#panel_links, #panel_settings {
+	display: inline;
+}
+
+#panel_settings {
+	float: right;
+}
+
+#panel_links a {
+	margin: .25em;
+}
+
+/* HEADER */
+
+#header {
+	height: 92px;
+}
+
+#logo {
+	height: 128px;
+	margin: 4px 0 0 4px;
+	width: 153px;
+	overflow: hidden;
+	position: absolute;	
+}
+#logolink {
+	background-image: url(images/fgd.png);
+	background-repeat: no-repeat;
+	display: block;
+	height: 82px;
+	text-decoration: none;
+	width: 153px;
+}
+#headsearch {
+	margin-left: 170px;
+	padding: 38px 48px 0 0;
+	width: 280px;
+}
+
+/* SIDE BAR */
+
+#sidebar {
+	float: left;
+	font-size: 90%;
+	line-height: 130%;
+	margin-left: 20px;
+	top: 128px;
+	width: 140px;
+}
+
+.sidebarlist {
+	/*border: 1px solid #333;*/
+	list-style: none;
+	margin: 0 0 .5em 0;
+	padding:0;
+}
+
+#sidebar_wrap {
+
+}
+
+/* AD BAR */
+
+#advbar {
+	float: right;
+	top: 128px;
+	width: 200px;
+}
+
+/* MAIN CONTENT */
+
+#main {
+	margin-left: 170px;
+	top: 128px;
+}
+
+/* INDEX */
+
+.table_controls .forum_marker {
+	float: right;
+}
+
+.forums_table {
+	width: 100%;
+}
+
+.forums_table tr {
+	border-bottom: 1px solid #303030;
+}
+
+.forum_read, .forum_no_messages {
+	background-color: #1d1d1d;
+}
+
+.forum_not_read {
+	background-color: #141414;
+}
+
+.index_list_forum_title {
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+
+.collapsed, .expanded {
+	text-align: right;
+}
+
+td {
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+/* FOOTER */
+
+#footer {
+	text-align: center;
+	clear: both;
+}
+
+/* DEBUGGING */
+table, tr, td {
+	/*border-width: 0px;
+	border-style: solid;*/
+	border-collapse: collapse;
+}
+{PAGE: END}
