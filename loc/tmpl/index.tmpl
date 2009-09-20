@@ -208,9 +208,9 @@ forum_no_messages
 	  var togglePlus = '{MSG: maximize_category}';
 	  var toggleMinus  = '{MSG: minimize_category}';
 
-	  $(".collapsed").prepend('<input type="button" value="' + togglePlus + '" /> ')
+	  $(".collapsed").prepend('<input type="button" class="hideShowButton" value="' + togglePlus + '" /> ')
 					 .addClass("collapsable");
-	  $(".expanded").prepend('<input type="button" value="' + toggleMinus + '" /> ')
+	  $(".expanded").prepend('<input type="button" class="hideShowButton" value="' + toggleMinus + '" /> ')
 				.addClass("collapsable");
 
 	  $("input", $(".collapsable")).addClass('clickable')
