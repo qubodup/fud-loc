@@ -30,7 +30,7 @@
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-	<td colspan="2" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+	<td colspan="2" style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '0')}px;">
 		<a href="{TEMPLATE: index_to_cat_lnk}">{VAR: i[1]}</a>
 		{VAR: i[2]}
 	</td?
@@ -42,7 +42,7 @@
 
 {SECTION: index_category_allow_collapse_N uncollapsable category entry}
 <tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-	<td colspan="2" style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;">
+	<td colspan="2" style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '0')}px;">
 		<span><a href="{TEMPLATE: index_to_cat_lnk}">{VAR: i[1]}</a></span> {VAR: i[2]}
 	</td>
 	{TEMPLATE: index_cat_up_down_arrows}
@@ -55,10 +55,10 @@
 
 {SECTION: index_forum_entry forum entry row}
 <tr class="{VAR: forum_read_indicator} child-c{VAR: r[5]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}">
-	<td style="padding-left: {FUNC: ($i[0] ? $i[0] * 20 : '0')}px;"><a {IF: $r[6]}style="background-image: url(images/forum_icons/{VAR: r[6]});"{ENDIF} href="{TEMPLATE: index_forum_entry_lnk}" class="index_list_forum_title">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
+	<td style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '10')}px;"><a {IF: $r[6]}style="background-image: url(images/forum_icons/{VAR: r[6]});"{ENDIF} href="{TEMPLATE: index_forum_entry_lnk}" class="index_list_forum_title">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
 	<td>{VAR: r[12]} {MSG: posts}<br />{VAR: r[13]} {MSG: threads}</td>
-	<td><a href="{TEMPLATE: last_post_lnk}">{IF: $r[8]}{TEMPLATE: index_last_post_date}</a>
-<!--{MSG: by}{IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END}-->
+	<td>{IF: $r[8]}<a href="{TEMPLATE: last_post_lnk}">{TEMPLATE: index_last_post_date}</a><br />
+{MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END}
 <!--<img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" />-->
 {ELSE}{MSG: na}{END}</td>
 </tr>

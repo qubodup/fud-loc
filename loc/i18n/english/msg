@@ -8,7 +8,7 @@ avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Messages(s) ({VAR: avg} average messages per day)
 biography:			Biography:
 birth_date:			Date Of Birth:
-by:				By:
+by:				by
 by_mod:				by Moderator
 current_time:			Current Time
 custom_avatar_queue:		Custom Avatar Queue
