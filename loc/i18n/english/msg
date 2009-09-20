@@ -62,7 +62,7 @@ mark_all_read:			mark all messages read
 mark_all_read_desc:		All your unread messages will be marked as read
 members:			Members
 message:			Message
-message_counter:		<li>{VAR: post_count} messages</span></li><li>{VAR: thread_count} threads</span></li>
+message_counter:		<li>{VAR: post_count} posts</span></li><li>{VAR: thread_count} threads</span></li>
 message_index:			Message index
 message_index_desc:		View the message list
 minimize_category:		hide
