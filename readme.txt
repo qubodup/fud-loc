@@ -2,7 +2,7 @@ loc is a modern FUDforum (2.8.1) skin, developed for the FreeGameDev forum
 
 == Installation ==
 
-Copy, link or just checkout the "loc" directory to the fudforum/thm/
+Copy, softlink or just checkout the "loc" directory to the fudforum/thm/
 directory. Add it in the administration/theme manager menu and make it
 default. Then select the skin in your user's settings.
 
