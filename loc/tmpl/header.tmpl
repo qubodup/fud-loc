@@ -60,9 +60,8 @@
 		{VAR: usr->alias}
 		|
 		{IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END}
-		|
-		{IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: admin_control_panel}{ENDIF}
-		|
+    |
+		{IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: admin_control_panel} | {ENDIF}
 		<a accesskey="h" href="{TEMPLATE: usercp_lnk2}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_help{DEF: img_ext});*/" /> {MSG: faq}</a>
 		|
 		{IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}
