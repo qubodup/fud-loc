@@ -69,8 +69,7 @@
 {SECTION: END}
 
 {SECTION: thread_row}
-<tr>
-<td>{TEMPLATE-DATA: thread_read_status}</td>
+<tr class="{TEMPLATE-DATA: thread_read_status}">
 <td>{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
 <td>{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span>{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a>{IF: $r[22]}<br /><span>{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div>{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span>{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
 <td>{VAR: r[16]}</td>
