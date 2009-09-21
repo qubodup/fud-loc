@@ -58,8 +58,8 @@ logged_in_list:			Logged in users list
 login:				Sign in
 login_header:			Sign in:
 logout:				Sign out
-mark_all_read:			mark all messages read
-mark_all_read_desc:		All your unread messages will be marked as read
+mark_all_read:			mark all posts read
+mark_all_read_desc:		All your unread posts will be marked as read
 members:			Members
 message:			Message
 message_counter:		<li>{VAR: post_count} posts</span></li><li>{VAR: thread_count} threads</span></li>
@@ -73,14 +73,14 @@ moderator_of:			Moderator of:
 moderator_options:		Moderator Options
 moderators:			Moderator(s)
 more_unread_messages:		more unread messages
-more_unread_messages_desc:	Show more unread messages and mark the currently viewable messages read
+more_unread_messages_desc:	Show more unread posts and mark the currently viewable messages read
 move_thread:			Move
 moved:				Moved to another forum
 moved_thread_message:		This topic has been moved to another forum
 na:				n/a
 new_posts:			New Messages
 new_private_messages:		You have <span class="GenTextRed">({VAR: c})</span> unread private message(s)
-new_thread:			Create a new topic
+new_thread:			New thread
 newest_user:			Newest user:
 next_page:			Next Page
 next_thread:			Next Topic:
@@ -93,7 +93,7 @@ no_subscribed_threads:		No subscribed topics
 no_unread_locked:		This topic has been locked
 no_unread_msg:			This topic has no unread messages
 no_unread_msg_unreg:		The read &amp; unread messages are only tracked for registered users
-num_pages:			Pages ({VAR: ttl_pg}):
+num_pages:			{VAR: ttl_pg} pages:
 num_votes:			{VAR: obj->total_votes} vote(s)
 occupation:			Occupation:
 off:				OFF
@@ -893,8 +893,8 @@ threadt_announce:		announcement
 reported_no_messages:		There are no reported messages.
 poll_no_polls:			There are no accessible polls.
 no_unread_messages:		There are no unread messages matching your query.
-thread_mark_all_read:		mark all unread forum messages read
-thread_mark_all_read_desc:	All unread messages in this forum will be marked read
+thread_mark_all_read:		mark unread forum posts read
+thread_mark_all_read_desc:	All unread posts in this forum will be marked read
 private_no_messages:		There are no messages in this folder.
 register_email_change_subject:	E-mail change confirmation
 register_email_change_msg:	Please confirm your new e-mail account "{VAR: uent->email}" that replaces your old e-mail account "{VAR: old_email}", by going to the URL below:\n{FULL_ROOT}{ROOT}?t=emailconf&conf_key={VAR: conf_key}\n\nOnce you confirm your new e-mail address, your forum account will be re-activated.

@@ -1,6 +1,8 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
+* copyright            : (C) 2009 Iwan Gabovitch
+* email                : qubodup@gmail.com
 * $Id: thread.tmpl,v 1.73 2009/01/29 18:37:29 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
@@ -23,7 +25,7 @@
 {REF: thread_view_common.tmpl}
 
 {SECTION: mini_thread_pager}
-<span class="SmallText">(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</span>
+<span>(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</span>
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
@@ -55,25 +57,25 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" value="{VAR: r[13]}" /></div>
+<div>{MSG: moderator_options}: <a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" value="{VAR: r[13]}" /></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
-<div class="ModOpt">{MSG: moderator_options}: <a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></div>
+<div>{MSG: moderator_options}: <a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_move_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_del moderator link for deleting a thread}
-<div class="ModOpt">{MSG: moderator_options}: <a href="{TEMPLATE: admin_control_row_del_lnk}">{MSG: thread_mod_delete}</a></div>
+<div>{MSG: moderator_options}: <a href="{TEMPLATE: admin_control_row_del_lnk}">{MSG: thread_mod_delete}</a></div>
 {SECTION: END}
 
 {SECTION: thread_row}
 <tr>
-<td class="RowStyleB wo">{TEMPLATE-DATA: thread_read_status}</td>
-<td class="RowStyleB wo ac">{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
-<td class="RowStyleA">{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span class="AnClr">{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a class="big" href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a>{IF: $r[22]}<br /><span class="small">{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div class="TopBy">{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span class="DateText">{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
-<td class="RowStyleB ac">{VAR: r[16]}</td>
-<td class="RowStyleB ac">{VAR: r[19]}</td>
-<td class="RowStyleC nw"><span class="DateText">{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
+<td>{TEMPLATE-DATA: thread_read_status}</td>
+<td>{IF: $r[3]}<img src="images/message_icons/{VAR: r[3]}" alt="{VAR: r[3]}" />{ELSE}&nbsp;{END}</td>
+<td>{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span class="StClr">{MSG: sticky}&nbsp;</span>{ELSE}<span>{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}<a href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a>{IF: $r[22]}<br /><span>{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager} <div>{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <span>{TEMPLATE: thread_first_post_date}</span></div>{TEMPLATE-DATA: admin_control_row}</td>
+<td>{VAR: r[16]}</td>
+<td>{VAR: r[19]}</td>
+<td><span>{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
 </tr>
 {SECTION: END}
 
@@ -83,8 +85,8 @@
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
 <tr>
-<td class="RowStyleB wo"><img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" title="{MSG: moved_thread_message}" alt="" /></td>
-<td class="RowStyleB ac GenText" colspan="5">{MSG: was_moved_msg}</td>
+<td><img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" title="{MSG: moved_thread_message}" alt="" /></td>
+<td colspan="5">{MSG: was_moved_msg}</td>
 </tr>
 {SECTION: END}
 
@@ -93,59 +95,86 @@
 {SECTION: END}
 
 {SECTION: thread_list}
-{IF: $MOD || $mo == 8224}<form method="post" action="{TEMPLATE: thread_mod_mass_lnk}">{ENDIF}
-<table border="0" cellspacing="1" cellpadding="2" class="pad">
-<tr>
-	<th>&nbsp;</th>
-	<th>&nbsp;</th>
-	<th class="wa">{MSG: thread_thread}</th>
-	<th class="wo">{MSG: replies}</th>
-	<th class="wo">{MSG: views}</th>
-	<th class="nw">{MSG: last_post}</th>
-</tr>
 {TEMPLATE-DATA: announcements}
-{IF: $MOD || $mo == 8224}
-<tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\');" /> </td>
-	<td colspan="3" class="RowStyleC"> </td>
-</tr>
-{ENDIF}
-{TEMPLATE-DATA: thread_list_table_data}
-{IF: $MOD || $mo == 8224}
-<tr>
-	<td colspan="3" class="RowStyleC ar"><input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" /></td>
-	<td colspan="3" class="RowStyleC"> </td>
-</tr>
-{ENDIF}
-</table>{IF: $MOD || $mo == 8224}{DEF: _hs}</form>{ENDIF}
+{TEMPLATE: mod_form_start}
+  {TEMPLATE: mod_form_controls}
+  <table>
+<!--<tr>
+	<th>{MSG: thread_thread}</th>
+	<th>{MSG: replies}</th>
+	<th>{MSG: views}</th>
+	<th>{MSG: last_post}</th>
+</tr>-->
+  {TEMPLATE-DATA: thread_list_table_data}
+  </table>
+  {TEMPLATE: mod_form_controls}
+{TEMPLATE: mod_form_end}
 {SECTION: END}
 
 {PAGE: THREAD_PAGE shows the threads in a particular forum}
 {TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: admin_cp}
-<table class="wa" border="0" cellspacing="0" cellpadding="0"><tr>
-<td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{IF: _uid}{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}</td>
-<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
-</tr></table>
+<div id="sidebar">
+  {TEMPLATE: usercp}
+  {TEMPLATE: show_links}
+  {TEMPLATE-DATA: admin_cp}
+  {TEMPLATE: thread_merge_t}
+  {TEMPLATE: subscribe}
+</div>
+<div id="main">
+{TEMPLATE: table_controls}
+{TEMPLATE: table_controls_2}
 {TEMPLATE: thread_list}
-<table border="0" cellspacing="0" cellpadding="0" class="wa">
-<tr>
-<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td class="GenText nw vb ar">{IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}{TEMPLATE: new_thread_link}</td>
-</tr>
-</table>
-{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
-{IF: _uid}
-	{TEMPLATE: thread_mark_all_read}
-{ELSE}
-	{TEMPLATE: thread_pdf_rdf}
-{END}
-{TEMPLATE: thread_legend}
-{TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
+{TEMPLATE: table_controls_2}
+{TEMPLATE: table_controls}
+<!--{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}-->
+  <!--{TEMPLATE: curtime}
+  {TEMPLATE-DATA: page_stats}-->
+  {IF: $FUD_OPT_2 & 512}{TEMPLATE: threaded_view}{ENDIF}
+</div>
 {TEMPLATE: footer}
 {PAGE: END}
+
+{SECTION: table_controls}
+<div class="table_controls">
+{FUNC: draw_forum_path($frm->cat_id)} &#187; <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->name}</a>
+{TEMPLATE-DATA: page_pager}
+</div>
+{SECTION: END}
+
+{SECTION: table_controls_2}
+<div class="table_controls">
+{TEMPLATE: new_thread_link}
+{TEMPLATE: thread_mark_all_read}
+</div>
+{SECTION: END}
+
+{SECTION: mod_form_start}
+{IF: $MOD || $mo == 8224}<form method="post" action="{TEMPLATE: thread_mod_mass_lnk}">{ENDIF}
+{SECTION: END}
+
+{SECTION: mod_form_controls}
+{IF: $MOD || $mo == 8224}
+<input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" />
+{ENDIF}
+{SECTION: END}
+
+{SECTION: mod_form_end}
+{IF: $MOD || $mo == 8224}{DEF: _hs}</form>{ENDIF}
+{SECTION: END}
+
+{SECTION: subscribe}
+<ul class="sidebarlist">
+<li>
+{IF: _uid}
+  {IF: $frm->subscribed}
+    {TEMPLATE: unsubscribe_link}
+  {ELSE}
+    {TEMPLATE: subscribe_link}
+  {ENDI}
+{ENDIF}
+</li>
+</ul>
+{SECTION: END}
 
 {SECTION: thread_update}
 {MSG: thread_update}

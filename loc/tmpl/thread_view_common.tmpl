@@ -1,6 +1,8 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
+* copyright            : (C) 2009 Iwan Gabovitch
+* email                : qubodup@gmail.com
 * $Id: thread_view_common.tmpl,v 1.43 2009/02/03 20:40:46 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
@@ -17,7 +19,7 @@
 {SECTION: END}
 
 {SECTION: thread_mark_all_read}
-<div class="ar SmallText">[<a href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>]{IF: ($FUD_OPT_2 & 270532608) == 270532608}{TEMPLATE: thread_printable_pdf}{ENDIF}{IF: $FUD_OPT_2 & 1048576}{TEMPLATE: thread_syndicate}{ENDIFI}</div>
+<a class="forum_marker" href="{TEMPLATE: thread_mark_all_read_lnk}" title="{MSG: thread_mark_all_read_desc}">{MSG: thread_mark_all_read}</a>{IF: ($FUD_OPT_2 & 270532608) == 270532608}{TEMPLATE: thread_printable_pdf}{ENDIFI}
 {SECTION: END}
 
 {SECTION: new_thread_link_lnk}
@@ -25,7 +27,7 @@
 {SECTION: END}
 
 {SECTION: new_thread_link}
-<a href="{TEMPLATE: new_thread_link_lnk}"><img src="{THEME_IMAGE_ROOT}/new_thread.gif" alt="{MSG: new_thread}" /></a>
+<a href="{TEMPLATE: new_thread_link_lnk}">{MSG: new_thread}</a>
 {SECTION: END}
 
 {SECTION: unsubscribe_link_lnk}
@@ -45,7 +47,7 @@
 {SECTION: END}
 
 {SECTION: no_messages}
-<tr><td class="RowStyleA ac" colspan="{VAR: ann_cols}"><span class="GenText">{MSG: no_messages}</span></td></tr>
+<tr><td colspan="{VAR: ann_cols}"><span>{MSG: no_messages}</span></td></tr>
 {SECTION: END}
 
 {SECTION: thread_poll_indicator}
@@ -116,7 +118,11 @@
 {SECTION: END}
 
 {SECTION: thread_merge_t}
-&nbsp;<a href="{TEMPLATE: thread_merge_t_lnk}">{MSG: merge_topics}</a>
+<ul class="sidebarlist">
+  {IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}
+    <li><a href="{TEMPLATE: thread_merge_t_lnk}">{MSG: merge_topics}</a></li>
+  {ENDIF}
+</ul>
 {SECTION: END}
 
 {SECTION: thread_legend}
