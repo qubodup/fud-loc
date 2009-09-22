@@ -138,12 +138,16 @@ a:link img, a:visited img {
   float: right;
 }
 
+.newThreadLink {
+  font-size: 130%;
+}
+
 .forums_table {
   margin: 1em 0;
   width: 100%;
 }
 
-.forums_table tr {
+.forums_table tr, .threadsTable tr {
   border-bottom: 1px solid #303030;
 }
 
@@ -155,9 +159,13 @@ a:link img, a:visited img {
   background-color: #141414;
 }
 
-.index_list_forum_title {
+.index_list_forum_title, .threadListThreadTitle {
   background-repeat: no-repeat;
   padding-left: 18px;
+}
+
+.threadListThreadTitle {
+  margin-left: 10px;
 }
 
 .collapsed, .expanded {

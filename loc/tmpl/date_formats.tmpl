@@ -9,7 +9,7 @@
 **/
 
 {SECTION: last_post_date date of the last post}
-{DATE: r[9] %a, %d %B %Y %H:%M}
+{DATE: r[9] %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: action_entry_date last visit time}
@@ -17,27 +17,27 @@
 {SECTION: END}
 
 {SECTION: dmsg_join_date}
-{DATE: obj->join_date %B %Y}
+{DATE: obj->join_date %b %Y}
 {SECTION: END}
 
 {SECTION: dmsg_update_on_date}
-{DATE: obj->update_stamp %a, %d %B %Y %H:%M}
+{DATE: obj->update_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: dmsg_post_date}
-{DATE: obj->post_stamp %a, %d %B %Y %H:%M}
+{DATE: obj->post_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: uinfo_last_post_date}
-{DATE: r[2] %a, %d %B %Y %H:%M}
+{DATE: r[2] %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: uinfo_last_visit_date}
-{DATE: u->last_visit %a, %d %B %Y %H:%M}
+{DATE: u->last_visit %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: uinfo_join_date}
-{DATE: u->join_date %a, %B %d, %Y}
+{DATE: u->join_date %b %d, %Y}
 {SECTION: END}
 
 {SECTION: uc_pm_date}
@@ -45,27 +45,27 @@
 {SECTION: END}
 
 {SECTION: uc_last_post_date}
-{DATE: r->post_stamp %a, %d %B %Y}
+{DATE: r->post_stamp %d %b %Y}
 {SECTION: END}
 
 {SECTION: uc_sub_topic_date}
-{DATE: r->post_stamp %a, %d %B %Y}
+{DATE: r->post_stamp %d %b %Y}
 {SECTION: END}
 
 {SECTION: tree_msg_post_date}
-{DATE: cur->post_stamp %a, %d %B %Y %H:%M}
+{DATE: cur->post_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: threadt_msg_post_date}
-{DATE: cur->post_stamp %a, %d %B %Y %H:%M}
+{DATE: cur->post_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: thread_last_post_date}
-{DATE: r[10] %a, %d %B %Y %H:%M}
+{IF: (date("dmy", time()) == date("dmy", $r[10]))}{FUNC: date("G:i", $r[10])}{ELSE}{IF: (date("y", time()) == date("y", $r[10]))}{FUNC: date("M j", $r[10])}{ELSE}{FUNC: date("M j Y", $r[10])}{END}{END}
 {SECTION: END}
 
 {SECTION: thread_first_post_date}
-{DATE: r[4] %a, %d %B %Y}
+{DATE: r[4] %d %b %Y}
 {SECTION: END}
 
 {SECTION: current_date}
@@ -73,35 +73,35 @@
 {SECTION: END}
 
 {SECTION: buddy_date}
-{DATE: r[3] %a, %d %B %Y %H:%M}
+{DATE: r[3] %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: showposts_ent_date}
-{DATE: r[4] %a, %d %B %Y %H:%M}
+{DATE: r[4] %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: finduser_join_date}
-{DATE: r->join_date %a, %d %B %Y}
+{DATE: r->join_date %d %b %Y}
 {SECTION: END}
 
 {SECTION: search_post_date}
-{DATE: r->post_stamp %a, %d %B %Y %H:%M}
+{DATE: r->post_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: reported_date}
-{DATE: obj->report_stamp %a, %d %B %Y %H:%M}
+{DATE: obj->report_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: make_report_date}
-{DATE: msg->post_stamp %a, %d %B %Y %H:%M}
+{DATE: msg->post_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: referrals_join_date}
-{DATE: r[2] %a, %d %B %Y}
+{DATE: r[2] %d %b %Y}
 {SECTION: END}
 
 {SECTION: online_today_last_post_date}
-{DATE: r[7] %a, %d %B %Y %H:%M}
+{DATE: r[7] %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: online_today_visit_date}
@@ -109,33 +109,33 @@
 {SECTION: END}
 
 {SECTION: poll_date}
-{DATE: obj->creation_date %a, %d %B %Y %H:%M}
+{DATE: obj->creation_date %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: index_last_post_date}
-{DATE: r[2] %a, %d %B %Y}
+{IF: (date("dmy", time()) == date("dmy", $r[2]))}{FUNC: date("G:i", $r[2])}{ELSE}{IF: (date("y", time()) == date("y", $r[2]))}{FUNC: date("M j", $r[2])}{ELSE}{FUNC: date("M j Y", $r[2])}{END}{END}
 {SECTION: END}
 
 {SECTION: ignore_list_date}
-{DATE: r[4] %a, %d %B %Y %H:%M}
+{DATE: r[4] %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: registered_on_date}
-{DATE: u_reg_date %a, %d %B %Y}
+{DATE: u_reg_date %d %b %Y}
 {SECTION: END}
 
 {SECTION: welcome_message_date}
-{DATE: usr->last_visit %a, %d %B %Y %H:%M}
+{DATE: usr->last_visit %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: coppa_date}
-{DATE: coppa %B %e, %Y}
+{DATE: coppa %b %e, %Y}
 {SECTION: END}
 
 {SECTION: ppost_quote_msg_date}
-{DATE: msg_r->post_stamp %a, %d %B %Y %H:%M}
+{DATE: msg_r->post_stamp %d %b %Y %H:%M}
 {SECTION: END}
 
 {SECTION: private_msg_notify_body_date}
-{DATE: !__request_timestamp__ %a, %d %B %Y %H:%M}
+{DATE: !__request_timestamp__ %d %b %Y %H:%M}
 {SECTION: END}
