@@ -3,7 +3,7 @@ add_to_buddy_list:		add to buddy list
 admin:				Admin 
 admin_control_panel:		Admin
 administrator:			Administrator
-attachment:			Attachment:
+attachment:			attachment
 avatar:				Avatar:
 average_post_count:		{VAR: u->posted_msg_count} Messages(s) ({VAR: avg} average messages per day)
 biography:			Biography:
@@ -51,7 +51,7 @@ last_post:			Latest post
 last_thread_msg:		Go to the last message in this topic
 legend:				Legend
 location:			Location:
-lock_thread:			Lock Topic
+lock_thread:			lock
 locked:				Locked
 locked_with_new_posts:		Locked (w/ unread messages)
 logged_in_list:			Logged in users list
@@ -74,7 +74,7 @@ moderator_options:		Moderator Options
 moderators:			Moderator(s)
 more_unread_messages:		more unread messages
 more_unread_messages_desc:	Show more unread posts and mark the currently viewable messages read
-move_thread:			Move
+move_thread:			move
 moved:				Moved to another forum
 moved_thread_message:		This topic has been moved to another forum
 na:				n/a
@@ -100,7 +100,7 @@ off:				OFF
 on:				ON
 page_timings:			Total time taken to generate the page: {VAR: page_gen_time} seconds
 pm:				Messages
-poll:				Poll:
+poll:				poll
 post_count:			Message Count {VAR: u_pcount}
 post_count_l:			Message Count:
 posts:				posts
@@ -139,7 +139,7 @@ status_line:			no code in translations
 status_line_online:		{VAR: st_obj->online_users_reg} online
 status_line_invisible:	{VAR: st_obj->online_users_hidden} invisible
 status_line_guests:		{VAR: st_obj->online_users_anon} guests
-sticky:				sticky:
+sticky:				sticky
 stop_ignoring:			stop ignoring this user
 sub_to_thread:			Subscribe to topic
 sub_to_thread_desc:		Receive notification about new messages inside this topic
@@ -152,7 +152,7 @@ subscribed_threads:		Subscribed Topics
 subscribed_threads_desc:	Toggle the subscribed topics filter (will only show messages from the topics you are subscribed to)
 switch_to_thread_view:		Switch to threaded view of this topic
 thread:				Topic:
-thread_announcement:		Announcement:
+thread_announcement:		announcement
 thread_first_unread_msg:	Click here to go the first unread message in this topic
 thread_thread:			Topic
 threads:			threads
@@ -766,7 +766,7 @@ th_expr_one_month:		1 Month
 th_expr_two_month:		2 Month
 th_expr_four_month:		4 Month
 th_expr_one_year:		1 Year
-thread_mod_delete:		Delete
+thread_mod_delete:		delete
 action_latest_post:		Last Message
 online_today_last_visit:	Last Visited
 online_today_update:		Viewing the list of people who were on the forum today.

@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<div><!--{MSG: moderator_options}:--><a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" class="threadListCheck" value="{VAR: r[13]}" /></div>
+<div class="threadListModLinks"><input type="checkbox" name="_sel[]" class="threadListCheck" value="{VAR: r[13]}" /><a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
@@ -70,9 +70,11 @@
 
 {SECTION: thread_row}
 <tr class="{TEMPLATE-DATA: thread_read_status}">
-<td>{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span>{MSG: sticky}&nbsp;</span>{ELSE}<span>{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}
-<a class="threadListThreadTitle" {IF: $r[3]}style="background-image: url(images/message_icons/{VAR: r[3]});"{ENDIF} href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a><br/>
-{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} {TEMPLATE: thread_first_post_date}</td>
+<td>
+<a class="threadListThreadTitle" {IF: $r[3]}style="background-image: url(images/message_icons/{VAR: r[3]});"{ENDIF} href="{TEMPLATE: first_unread_msg_link_lnk}">{VAR: r[2]}</a><br/>
+<span class="threadListByLine">
+{IF: ($r[18] > 1)}{IF: $r[18] & 4}<img src="{THEME_IMAGE_ROOT}/thread_sticky.gif" alt="{MSG: sticky}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/thread_announcement.gif" alt="{MSG: thread_announcement}" />{ENDI} {ENDIF}{IF: $r[1]}<img src="{THEME_IMAGE_ROOT}/thread_poll.gif" alt="{MSG: poll}" /> {ENDIF}{IF: $r[0]}<img src="{THEME_IMAGE_ROOT}/thread_attachment.gif" alt="{TEMPLATE: thread_attach_indicator}" />{ENDIF}
+{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <a href="{TEMPLATE: thread_row_lnk}">{TEMPLATE: thread_first_post_date}</a></span></td>
 <td>
 {IF: $r[22]}<span>{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager}
 <div><span></span></div>
