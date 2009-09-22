@@ -57,7 +57,7 @@
 {SECTION: END}
 
 {SECTION: admin_control_row_all moderator link for moving & deleting a thread}
-<div>{MSG: moderator_options}: <a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" value="{VAR: r[13]}" /></div>
+<div><!--{MSG: moderator_options}:--><a href="javascript://" onclick="window_open(\'{TEMPLATE: admin_control_row_all_lnk1}\', \'th_move\', 300, 400);">{MSG: move_thread}</a> | <a href="{TEMPLATE: admin_control_row_all_lnk}">{MSG: thread_mod_delete}</a> | <a href="{TEMPLATE: admin_control_row_lock_lnk}">{IF: $r[18] & 1}{MSG: unlock_thread}{ELSE}{MSG: lock_thread}{ENDI}</a> <input type="checkbox" name="_sel[]" class="threadListCheck" value="{VAR: r[13]}" /></div>
 {SECTION: END}
 
 {SECTION: admin_control_row_move moderator link for moving a thread}
@@ -72,15 +72,16 @@
 <tr class="{TEMPLATE-DATA: thread_read_status}">
 <td>{IF: ($r[18] > 1)}{IF: $r[18] & 4}<span>{MSG: sticky}&nbsp;</span>{ELSE}<span>{MSG: thread_announcement}&nbsp;</span>{ENDI}{ENDIF}{TEMPLATE-DATA: first_unread_msg_link}{IF: $r[1]}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $r[0]}{TEMPLATE: thread_attach_indicator}{ENDIF}
 <a class="threadListThreadTitle" {IF: $r[3]}style="background-image: url(images/message_icons/{VAR: r[3]});"{ENDIF} href="{TEMPLATE: thread_row_lnk}">{VAR: r[2]}</a><br/>
-{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on}{TEMPLATE: thread_first_post_date}</td>
+{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} {TEMPLATE: thread_first_post_date}</td>
 <td>
-{IF: $r[22]}<br /><span>{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager}
+{IF: $r[22]}<span>{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager}
 <div><span></span></div>
 {TEMPLATE-DATA: admin_control_row}
 </td>
-<td>{VAR: r[16]}</td>
-<td>{VAR: r[19]}</td>
-<td><span>{TEMPLATE: thread_last_post_date}</span><br />{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END} <a href="{TEMPLATE: last_msg_in_thread_lnk}"><img src="{THEME_IMAGE_ROOT}/goto.gif" title="{MSG: last_thread_msg}" alt="" /></a></td>
+<td>{VAR: r[16]} {MSG: replies}<br />
+{VAR: r[19]} {MSG: views}</td>
+<td><a href="{TEMPLATE: last_msg_in_thread_lnk}" title="{MSG: last_thread_msg}">{TEMPLATE: thread_last_post_date}</a><br />
+{MSG: by} {IF: $r[8]}<a href="{TEMPLATE: reg_user_link_lnk}">{VAR: r[8]}</a>{ELSE}{GVAR: ANON_NICK}{END}</td>
 </tr>
 {SECTION: END}
 
@@ -106,8 +107,6 @@
   <table class="threadsTable">
 <!--<tr>
 	<th>{MSG: thread_thread}</th>
-	<th>{MSG: replies}</th>
-	<th>{MSG: views}</th>
 	<th>{MSG: last_post}</th>
 </tr>-->
   {TEMPLATE-DATA: thread_list_table_data}
@@ -159,7 +158,11 @@
 
 {SECTION: mod_form_controls}
 {IF: $MOD || $mo == 8224}
-<input type="submit" class="button" name="del_sel_all" value="{MSG: thread_del_all}" /> <input type="submit" class="button" name="mov_sel_all" value="{MSG: thread_mov_all}" /> <input type="checkbox" name="toggle" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" />
+<div class="threadListModControls">
+<input type="submit" class="threadListAdminButton" name="del_sel_all" value="{MSG: thread_del_all}" />
+<input type="submit" class="threadListAdminButton" name="mov_sel_all" value="{MSG: thread_mov_all}" />
+<input type="checkbox" name="toggle" class="threadListCheck" title="Select all/none" onclick="$(\'input:checkbox\').attr(\'checked\', (this.checked)?\'checked\':\'\')" />
+</div>
 {ENDIF}
 {SECTION: END}
 

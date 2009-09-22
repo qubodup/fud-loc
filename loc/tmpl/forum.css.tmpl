@@ -142,7 +142,7 @@ a:link img, a:visited img {
   font-size: 130%;
 }
 
-.forums_table {
+.forums_table, .threadsTable {
   margin: 1em 0;
   width: 100%;
 }
@@ -181,14 +181,29 @@ td {
 
 /* INPUT */
 
-input.hideShowButton, input.headsearchtext, input.headsearchbutton {
+input.hideShowButton,
+input.headsearchtext, input.headsearchbutton,
+input.threadListAdminButton,
+input.threadListCheck {
   border: 1px solid #555;
   padding: 0 .4em;
 }
 
+input.hideShowButton,
+input.threadListAdminButton {
+  font-size: 75%;
+}
+
 input.hideShowButton {
   margin: 0 .4em 0 0;
-  font-size: 75%;
+}
+
+input.threadListAdminButton {
+  margin: .4em 0;
+}
+
+.threadListModControls {
+  text-align: center; /* centered, so won't get clicked accidentally */
 }
 
 /* FOOTER */

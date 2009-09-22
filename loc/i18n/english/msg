@@ -116,7 +116,7 @@ refresh_list:			Refresh List
 register:			Register
 registered:			Registered:
 registered_on:			Registered On {TEMPLATE: registered_on_date}
-replies:			Replies
+replies:		 replies
 report_to_mod:			Report message to a moderator
 reported_messages:		Reported Messages
 reveal_all_posts:		reveal all messages by {VAR: user_login}
@@ -180,7 +180,7 @@ user_offline:			{VAR: obj->login}  is currently offline
 user_online:			{VAR: obj->login} is currently online
 usrinfo_last_post:		Last Message:
 view_results:			View Results
-views:				Views
+views:				views
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Vote
 vote_for_thread:		Vote
