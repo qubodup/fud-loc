@@ -142,13 +142,31 @@ a:link img, a:visited img {
   font-size: 130%;
 }
 
-.forums_table, .threadsTable {
+table.forumsTable, table.threadsTable {
   margin: 1em 0;
+  table-layout: fixed;
   width: 100%;
 }
 
-.forums_table tr, .threadsTable tr {
+table.forumsTable tr, table.threadsTable tr {
   border-bottom: 1px solid #303030;
+}
+
+table.forumsTable td, table.threadsTable td {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+table.forumsTable td.dateRow, table.forumsTable td.hideRow, table.threadsTable td.dateRow {
+  font-size: 84%;
+  padding-left: 1em;
+  width: 12%;
+}
+
+table.forumsTable td.statsRow, table.forumsTable td.statsSemiRow, table.threadsTable td.statsRow {
+  font-size: 84%;
+  padding-left: 1em;
+  width: 8%;
 }
 
 .forum_read, .forum_no_messages, .thread_read {
@@ -178,9 +196,8 @@ a:link img, a:visited img {
 
 td {
   padding: .6em 0 .4em 0;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* INPUT */

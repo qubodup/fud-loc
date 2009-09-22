@@ -24,20 +24,21 @@
 
 {SECTION: index_cat_up_down_arrows up/down arrows for navigating category list}
 <td>
-	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><!--<img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" alt="" border="0" />--></a>{ENDIFI}
-	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><!--<img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0" alt="" style="vertical-align: top; float: right;" />--></a>{ENDIFI}
+	{IF: key($cidxc)}<a href="javascript://" onclick=\'nextCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/down{DEF: img_ext}" alt="" border="0" /></a>{ENDIFI}
+	{IF: $cat}<a href="javascript://" onclick=\'prevCat("c{VAR: k}")\'><img src="{THEME_IMAGE_ROOT}/up{DEF: img_ext}" border="0" alt="" style="vertical-align: top; float: right;" /></a>{ENDIFI}
 </td>
 {SECTION: END}
 
 {SECTION: index_category_allow_collapse_Y collapsable category entry}
 <tr id="c{VAR: r[5]}" style="display: {IF: empty($collapse[$i[4]])}table-row{ELSE}none{ENDI};">
-	<td colspan="2" style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '0')}px;">
+	<td style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '0')}px;">
 		<a href="{TEMPLATE: index_to_cat_lnk}">{VAR: i[1]}</a>
 		{VAR: i[2]}
-	</td?
-	<td class="{IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}">
 	</td>
-	{TEMPLATE: index_cat_up_down_arrows}
+  <td class="statsSemiRow">&nbsp;</td>
+	<td class="hideRow {IF: empty($collapse[$cid])}expanded{ELSE}collapsed{ENDI}">
+	</td>
+  <!--TEMPLATE: index_cat_up_down_arrows-->
 </tr>
 {SECTION: END}
 
@@ -57,10 +58,9 @@
 {SECTION: index_forum_entry forum entry row}
 <tr class="{VAR: forum_read_indicator} child-c{VAR: r[5]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}">
 	<td style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '10')}px;"><a {IF: $r[6]}style="background-image: url(images/forum_icons/{VAR: r[6]});"{ENDIF} href="{TEMPLATE: index_forum_entry_lnk}" class="index_list_forum_title">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
-	<td>{VAR: r[12]} {MSG: posts}<br />{VAR: r[13]} {MSG: threads}</td>
-	<td>{IF: $r[8]}<a href="{TEMPLATE: last_post_lnk}">{TEMPLATE: index_last_post_date}</a><br />
+	<td class="statsRow">{VAR: r[12]} {MSG: posts}<br />{VAR: r[13]} {MSG: threads}</td>
+	<td class="dateRow">{IF: $r[8]}<a href="{TEMPLATE: last_post_lnk}">{TEMPLATE: index_last_post_date}</a><br />
 {MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END}
-<!--<img title="{VAR: r[0]}" src="{THEME_IMAGE_ROOT}/goto.gif" alt="{VAR: r[0]}" />-->
 {ELSE}{MSG: na}{END}</td>
 </tr>
 {SECTION: END}
@@ -113,7 +113,7 @@ forum_no_messages
 <div id="main">
 	<!--{IF: _uid}<div><span id="welcome_message_user">{MSG: welcome_message}</span></div>{ENDIF}-->
 	{TEMPLATE: table_controls}
-	<table class="forums_table">
+	<table class="forumsTable">
 		<!--<tr>
 			<th>{MSG: index_forum}</th>
 			<th>{MSG: posts}/{MSG: threads}</th>
