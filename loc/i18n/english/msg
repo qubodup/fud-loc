@@ -184,7 +184,7 @@ views:				views
 vote:				{VAR: frm->n_rating} Vote(s)
 vote_button:			Vote
 vote_for_thread:		Vote
-was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> by the moderator
+was_moved_msg:			<a href="{TEMPLATE: was_moved_msg_lnk}">{VAR: r[2]}</a> has been moved to <a href="{TEMPLATE: was_moved_msg_lnk2}">{VAR: r[12]}</a> by a moderator
 welcome_message:		Welcome {VAR: usr->alias}, your last visit was on {TEMPLATE: welcome_message_date}
 what_ppl_doing:			Activity
 reported_del_report:		Delete Report
@@ -1007,8 +1007,8 @@ mmd_abort_move:			Cancel
 mmd_move:			Move Topics
 pmsg_pdf_btn:			Make PDF Archive
 search_results_hdr:		{VAR: total} Search Results Found
-thread_del_all:			Delete All Selected
-thread_mov_all:			Move All Selected
+thread_del_all:			delete selected
+thread_mov_all:			move selected
 dmsg_ip:			IP:
 err_blockedaccnt_title:		ERROR: Your account has been filtered out.
 err_blockedaccnt_msg:		Your account has been blocked from accessing the forum due to one of the installed user filters.
