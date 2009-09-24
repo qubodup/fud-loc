@@ -1,6 +1,8 @@
 /**
 * copyright            : (C) 2001-2009 Advanced Internet Designs Inc.
 * email                : forum@prohost.org
+* copyright            : (C) 2009 Iwan Gabovitch
+* email                : qubodup@gmail.com
 * $Id: msg.tmpl,v 1.74 2009/02/22 00:00:37 frank Exp $
 *
 * This program is free software; you can redistribute it and/or modify it
@@ -33,11 +35,11 @@
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
-| <a href="{TEMPLATE: sub_from_thread_lnk}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a>&nbsp;
+<ul class="sidebarlist"><li><a href="{TEMPLATE: sub_from_thread_lnk}" title="{MSG: sub_to_thread_desc}">{MSG: sub_to_thread}</a></li></ul>
 {SECTION: END}
 
 {SECTION: unsub_to_thread unsubscribe from thread link}
-| <a href="{TEMPLATE: unsub_to_thread_lnk}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a>&nbsp;
+<ul class="sidebarlist"><li><a href="{TEMPLATE: unsub_to_thread_lnk}" title="{MSG: unsub_from_thread_desc}">{MSG: unsub_from_thread}</a></li></ul>
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
@@ -49,7 +51,7 @@
 {SECTION: END}
 
 {SECTION: post_reply}
-&nbsp;<a href="{TEMPLATE: post_reply_lnk}"><img src="{THEME_IMAGE_ROOT}/post_reply.gif" alt="{MSG: submit_reply}" /></a>
+<a class="newReplyLink" href="{TEMPLATE: post_reply_lnk}">{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{MSG: submit_reply}{ENDIF}</a>
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
@@ -65,45 +67,52 @@
 </form>
 {SECTION: END}
 
+{SECTION: threadAdminOperations}
+<ul class="sidebarlist">
+{IF: ($frm->replies && $perms & 2048)}<li><a href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a></li>{ENDIF}
+{IF: ($frm->replies && $perms & 8192)}<li><a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a></li>{ENDIF}
+{IF: $perms & 8192}<li><a href="javascript://" onclick="window_open(\'{TEMPLATE: msg_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread} {MSG: thread}</a></li>{ENDIF}
+{IF: $perms & 4096}{IF: $frm->thread_opt & 1}<li><a href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a></li>{ELSE}<li><a href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a></li>{END}{ENDIF}
+</ul>
+{SECTION: END}
+
 {PAGE: MSG_PAGE  draws a flat view of the messages inside a thread}
-{TEMPLATE: header}
-{TEMPLATE: usercp}
-{TEMPLATE-DATA: admin_cp}
+{TEMPLATE: header}                                                                                                                                     
+<div id="sidebar">
+  {TEMPLATE: usercp}
+  {TEMPLATE: show_links}
+  {TEMPLATE-DATA: admin_cp}
+  {TEMPLATE: threadAdminOperations}
+  {TEMPLATE-DATA: subscribe_status}
+</div>
+<div id="main">
 <a name="page_top"> </a>
 {FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
- {IF: $frm->tdescr}<span class="small">({VAR: frm->tdescr})</span>{ENDIF} 
-<span id="threadRating">{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}</span>
-<table cellspacing="0" cellpadding="0" border="0" class="wa">
-<tr>
-<td class="GenText al">{TEMPLATE: show_links}
-{IF: ($frm->replies && $perms & 2048)}<a href="{TEMPLATE: split_thread_lnk}">{MSG: split_thread}</a>&nbsp;|&nbsp;{ENDIF}
-{IF: ($frm->replies && $perms & 8192)}<a href="{ROOT}?t=movemsg&amp;th={VAR: th}">{MSG: move_messages}</a>&nbsp;|&nbsp;{ENDIF}
-{IF: $perms & 8192}<a href="javascript://" onclick="window_open(\'{TEMPLATE: msg_mv_thread}\', \'th_move\', 300, 400);">{MSG: move_thread}</a>&nbsp;|&nbsp;{ENDIF}
-{IF: $perms & 4096}{IF: $frm->thread_opt & 1}<a href="{TEMPLATE: mod_unlock_thread_lnk}">{MSG: unlock_thread}</a>&nbsp;|&nbsp;{ELSE}<a href="{TEMPLATE: mod_lock_thread_lnk}">{MSG: lock_thread}</a>&nbsp;|&nbsp;{END}{ENDIF}
+{IF: $frm->tdescr}<span class="">({VAR: frm->tdescr})</span>{ENDIF} 
+{IF: $FUD_OPT_2 & 4096 && $frm->rating}<span class="">{TEMPLATE: thread_rating}</span>{ENDIF}
 {IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;{ENDIF}
-{TEMPLATE-DATA: first_unread_message_link}{TEMPLATE-DATA: subscribe_status}</td>
-<td class="vb ar">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
-</tr>
-</table>
-<table cellspacing="0" cellpadding="0" class="ContentTable">{TEMPLATE-DATA: message_data}</table>
-<table border="0" cellspacing="0" cellpadding="0" class="wa">
-<tr>
-<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td class="GenText ar vb nw">{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}{TEMPLATE: new_thread}{IF: (!($frm->thread_opt & 1) || $perms & 4096)}{TEMPLATE: post_reply}{ENDIF}</td>
-</tr>
-</table>
+{TEMPLATE-DATA: first_unread_message_link}
+{TEMPLATE: post_reply}
+<!--{TEMPLATE: new_thread}--><!--{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}-->
+<table>{TEMPLATE-DATA: message_data}</table>
+{TEMPLATE: post_reply}
+{TEMPLATE-DATA: page_pager}
 {IF: (!empty($prev_thread_link) || !empty($next_thread_link))}
-<table border="0" cellspacing="1" cellpadding="1" align="right">
 {TEMPLATE-DATA: prev_thread_link}
 {TEMPLATE-DATA: next_thread_link}
-</table>
 {ENDIF}
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
-<br /><div class="wa ac">-=] <a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a> [=-</div>
-<div class="ar SmallText">{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}</div>
+<!--<a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a>
+{IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}
 {TEMPLATE: curtime}
-{TEMPLATE-DATA: page_stats}
+{TEMPLATE-DATA: page_stats}-->
+</div> <!-- main end -->
+{TEMPLATE: javascript}
+{TEMPLATE: footer}
+{PAGE: END}
+
+{SECTION: javascript}
 <script type="text/javascript">
 /* <![CDATA[ */
 $(document).ready(function() {
@@ -139,8 +148,7 @@ $(document).ready(function() {
 {ENDIF}
 /* ]]> */
 </script>
-{TEMPLATE: footer}
-{PAGE: END}
+{SECTION: END}
 
 {SECTION: msg_pdf_link}
 [ <a href="{GVAR: WWW_ROOT}pdf.php?th={VAR: th}&amp;{DEF: _rsid}">{MSG: thread_printable_pdf}</a> ]

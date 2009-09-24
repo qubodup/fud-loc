@@ -141,7 +141,7 @@ status_line_invisible:	{VAR: st_obj->online_users_hidden} invisible
 status_line_guests:		{VAR: st_obj->online_users_anon} guests
 sticky:				sticky
 stop_ignoring:			stop ignoring this user
-sub_to_thread:			Subscribe to topic
+sub_to_thread:			subscribe
 sub_to_thread_desc:		Receive notification about new messages inside this topic
 subject:			Subject
 subscribe:			Subscribe
@@ -151,7 +151,7 @@ subscribed_forums_desc:		Toggle the subscribed forums filter (will only show mes
 subscribed_threads:		Subscribed Topics
 subscribed_threads_desc:	Toggle the subscribed topics filter (will only show messages from the topics you are subscribed to)
 switch_to_thread_view:		Switch to threaded view of this topic
-thread:				Topic:
+thread:				thread
 thread_announcement:		announcement
 thread_first_unread_msg:	Click here to go the first unread message in this topic
 thread_thread:			Topic
@@ -162,14 +162,14 @@ todays_posts_desc:		Show all messages that were posted today
 un_ignore_user:			stop ignoring messages by this user
 unanswered_posts:		Unanswered
 unanswered_posts_desc:		Show all messages, which have no replies
-unlock_thread:			Unlock Topic
+unlock_thread:			unlock
 unread_msg:			This topic contains messages you have not yet read
 unread_msg_locked:		Locked topic with unread messages
 unread_posts:			Unread
 unread_posts_desc:		Show all unread messages
-unsub_from_thread:		Unsubscribe from topic
+unsub_from_thread:		unsubscribe
 unsub_from_thread_desc:		Stop receiving notifications about new messages in this topic
-unsubscribe:			Unsubscribe
+unsubscribe:			unsubscribe
 unsubscribe_desc:		Stop receiving notifications about new topics in the forum
 updated_on:			Updated on:
 user:				User
@@ -344,7 +344,7 @@ post_size:			Size
 post_color:			Color
 post_font:			Font
 create_thread:			Create Topic
-submit_reply:			Submit Reply
+submit_reply:			Reply
 edit_message:			Apply Message Changes
 apply_spell_changes:		Apply Spelling Changes
 post_preview:			Message Preview
@@ -703,7 +703,7 @@ thr_exch_decl_reason:		Reason for declining topic <b>{VAR: data->subject}</b> in
 thr_exch_submit:		Submit
 exch_decline_ttl:		Moving of topic {VAR: data->subject} into forum {VAR: data->f2_name} was declined.
 ppost_original_msg:		message you are forwarding or replying to
-split_thread:			Split Topic
+split_thread:			split
 groupmgr_no_user:		There is no user with a login of "{FUNC: char_fix(htmlspecialchars($gr_member))}"
 groupmgr_already_exists:	User "{FUNC: char_fix(htmlspecialchars($gr_member))}" already exists in this group.
 groupmgr_yes:			Yes
@@ -1045,6 +1045,6 @@ finduser_flag:			Flag
 post_descr:			Topic Description:
 pmsg_on				on
 pmsg_download_dump:		Download Message Dump
-move_messages:			Move messages
+move_messages:			move posts
 move_msg_btn:			Move Selected Messages
 move_msg_th_expl:		Specify the ID of the destination topic (can be in other forums)
