@@ -137,7 +137,12 @@ a:link img, a:visited img {
 
 /* INDEX */
 
-.table_controls .forum_marker, .table_controls .pager, .threadControls .pager, .threadControls .firstNotReadLink {
+.table_controls .forum_marker, .table_controls .pager, .threadControls .pager, .threadControls .firstNotReadLink, .postNextPrev {
+  float: right;
+  font-size: 84%;
+}
+
+.postReportLink {
   float: right;
 }
 
@@ -148,6 +153,11 @@ a.newThreadLink, a.newReplyLink {
 table.forumsTable, table.threadsTable {
   margin: 1em 0;
   table-layout: fixed;
+  width: 100%;
+}
+
+.postsWrapper, .singlePostWrapper {
+  margin: 1em 0;
   width: 100%;
 }
 
@@ -216,7 +226,7 @@ table.threadsTable td span.threadListMovedMessage {
   padding-left: 18px;
 }
 
-.threadDescriptionLine {
+.threadDescriptionLine, .postDateLine {
   font-size: 84%;
 }
 

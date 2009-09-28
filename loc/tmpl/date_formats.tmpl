@@ -21,11 +21,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_update_on_date}
-{DATE: obj->update_stamp %d %b %Y %H:%M}
+{IF: (date("dmy", time()) == date("dmy", $obj->update_stamp))}{FUNC: date("G:i", $obj->update_stamp)}{ELSE}{IF: (date("y", time()) == date("y", $obj->update_stamp))}{FUNC: date("M j", $obj->update_stamp)}{ELSE}{FUNC: date("M j Y", $obj->update_stamp)}{END}{END}
 {SECTION: END}
 
 {SECTION: dmsg_post_date}
-{DATE: obj->post_stamp %d %b %Y %H:%M}
+{IF: (date("dmy", time()) == date("dmy", $obj->post_stamp))}{FUNC: date("G:i", $obj->post_stamp)}{ELSE}{IF: (date("y", time()) == date("y", $obj->post_stamp))}{FUNC: date("M j", $obj->post_stamp)}{ELSE}{FUNC: date("M j Y", $obj->post_stamp)}{END}{END}
 {SECTION: END}
 
 {SECTION: uinfo_last_post_date}

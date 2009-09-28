@@ -117,7 +117,7 @@ register:			Register
 registered:			Registered:
 registered_on:			Registered On {TEMPLATE: registered_on_date}
 replies:		 replies
-report_to_mod:			Report message to a moderator
+report_to_mod:			report
 reported_messages:		Reported Messages
 reveal_all_posts:		reveal all messages by {VAR: user_login}
 reveal_post:			reveal message
@@ -171,7 +171,7 @@ unsub_from_thread:		unsubscribe
 unsub_from_thread_desc:		Stop receiving notifications about new messages in this topic
 unsubscribe:			unsubscribe
 unsubscribe_desc:		Stop receiving notifications about new topics in the forum
-updated_on:			Updated on:
+updated_on:			updated 
 user:				User
 user_counter:			{VAR: st_obj->user_count} members</span>
 user_info:			User Information
@@ -353,8 +353,8 @@ post_logout:			logout
 post_passwd:			Posting Password:
 post_poll:			Poll:
 post_create_poll:		CREATE POLL
-post_poll_delete:		DELETE
-post_poll_edit:			EDIT
+post_poll_delete:		delete
+post_poll_edit:			edit
 post_mod_opt:			Moderator Options:
 post_thread_type:		Topic Type:
 post_thread_expiry:		Topic Expiration:
@@ -489,7 +489,7 @@ email_subject:			Subject:
 email_body:			Body:
 email_submit:			E-mail
 ppost_quote_msg:		{VAR: msg_to_list} wrote on {TEMPLATE: ppost_quote_msg_date}
-ppost_quote:			Quote:
+ppost_quote:			quote
 ppost_to:			To:
 ppost_from_buddy_list:		Select from Buddy List
 ppost_find_User:		Find User
@@ -713,8 +713,8 @@ groupmgr_member:		Member
 groupmgr_cancel:		Cancel
 groupmgr_add_member:		Add Member
 groupmgr_update_member:		Update Member
-groupmgr_edit:			Edit
-groupmgr_delete:		Delete
+groupmgr_edit:			edit
+groupmgr_delete:		delete
 group_mgr_anon:			Anonymous
 group_mgr_reged:		All Registered Users
 show_show:			Show:
@@ -724,11 +724,11 @@ group_mgr_heading:		Group Editor Selection
 group_mgr_group:		Group:
 permission_denied_title:	Permission Denied!
 permission_denied_msg:		Your user permissions do not allow you to perform the action you are attempting.
-p_READ:				Read
-p_POST:				Post
-p_REPLY:			Reply
-p_EDIT:				Edit
-p_DEL:				Delete
+p_READ:				read
+p_POST:				post
+p_REPLY:			reply
+p_EDIT:				edit
+p_DEL:				delete
 p_STICKY:			Sticky messages
 p_POLL:				Create polls
 p_FILE:				Attach files

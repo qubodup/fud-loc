@@ -89,10 +89,12 @@
 {TEMPLATE: thread_controls}
 {IF: $frm->tdescr}<div class="threadDescriptionLine">{VAR: frm->tdescr}</div>{ENDIF} 
 {TEMPLATE: thread_controls_2}
-{IF: $FUD_OPT_2 & 4096 && $frm->rating}<span class="">{TEMPLATE: thread_rating}</span>{ENDIF}
+{IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}
 {IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>{ENDIF}
 <!--{TEMPLATE: new_thread}--><!--{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}-->
+<div class="postsWrapper">
 {TEMPLATE-DATA: message_data}
+</div>
 {TEMPLATE: thread_controls_2}
 {TEMPLATE: thread_controls}
 <!--{IF: (!empty($prev_thread_link) || !empty($next_thread_link))}

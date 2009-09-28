@@ -71,7 +71,7 @@
 
 {SECTION: dpmsg_file_attachments the file attachments list}
 <p />
-<ul class="AttachmentsList">
+<ul>
 {TEMPLATE-DATA: file_attachments}
 </ul>
 {SECTION: END}
@@ -170,7 +170,7 @@
 {SECTION: dpmsg_msg_toolbar buttons for replying,editing,deliting and forwarding the message}
 <tr><td colspan="2" class="MsgToolBar"><table border="0" cellspacing="0" cellpadding="0" class="wa"><tr>
 <td class="nw al">{TEMPLATE-DATA: user_profile}&nbsp;{TEMPLATE-DATA: email_link}&nbsp;{TEMPLATE-DATA: private_msg_link}</td>
-<td class="nw ar"><a href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{IF: $obj->fldr == 4}{TEMPLATE: dpmsg_edit_link}{ENDIFI}{IF: $obj->fldr == 1}{TEMPLATE: dpmsg_reply_link}{TEMPLATE: dpmsg_quote_link}{ENDIFI}<a href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
+<td><a href="{TEMPLATE: dpmsg_msg_toolbar_lnk}"><img src="{THEME_IMAGE_ROOT}/msg_delete.gif" alt="" /></a>&nbsp;{IF: $obj->fldr == 4}{TEMPLATE: dpmsg_edit_link}{ENDIFI}{IF: $obj->fldr == 1}{TEMPLATE: dpmsg_reply_link}{TEMPLATE: dpmsg_quote_link}{ENDIFI}<a href="{TEMPLATE: dpmsg_msg_toolbar_lnk2}"><img src="{THEME_IMAGE_ROOT}/msg_forward.gif" alt="" /></a></td>
 </tr></table></td></tr>
 {SECTION: END}
 

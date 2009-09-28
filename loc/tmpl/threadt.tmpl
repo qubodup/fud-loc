@@ -51,21 +51,16 @@
 {SECTION: END}
 
 {SECTION: thread_row}
-<tr>
-<td class="RowStyleB">{TEMPLATE-DATA: thread_read_status}</td>
-<td class="RowStyleB">{IF: $cur->icon}{TEMPLATE: thread_icon}{ELSE}{TEMPLATE: thread_icon_none}{END}</td>
-<td title="{VAR: cur->tdescr}" class="tt" style="padding-left: {FUNC: (20 * ($lev - 1))}px">{IF: $cur->poll_id}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $cur->attach_cnt}{TEMPLATE: thread_attach_indicator}{ENDIF}<a href="{TEMPLATE: thread_row_lnk}" class="big">{VAR: cur->subject}</a>
+{TEMPLATE-DATA: thread_read_status}</td>
+{IF: $cur->icon}{TEMPLATE: thread_icon}{ELSE}{TEMPLATE: thread_icon_none}{END}</td>
+<div title="{VAR: cur->tdescr}" style="padding-left: {FUNC: (20 * ($lev - 1))}px">{IF: $cur->poll_id}{TEMPLATE: thread_poll_indicator}{ENDIF}{IF: $cur->attach_cnt}{TEMPLATE: thread_attach_indicator}{ENDIF}<a href="{TEMPLATE: thread_row_lnk}">{VAR: cur->subject}</a>
 {IF: ($lev == 1 && $cur->thread_opt > 1)}{IF: $cur->thread_opt & 4}{TEMPLATE: sticky}{ELSE}{TEMPLATE: announcement}{END}{ENDIF}
-<div class="TopBy">{MSG: by} {IF: $cur->poster_id}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: unreg_user_link}{END} {MSG: thread_on} {TEMPLATE: threadt_msg_post_date}</div></td>
-</tr>
+<div class="TopBy">{MSG: by} {IF: $cur->poster_id}{TEMPLATE: reg_user_link}{ELSE}{TEMPLATE: unreg_user_link}{END} {MSG: thread_on} {TEMPLATE: threadt_msg_post_date}</div></div>
 {SECTION: END}
 
 {SECTION: thread_row_moved a row indicating that the thread has been moved}
-<tr>
-<td class="RowStyleB">&nbsp;</td>
-<td class="RowStyleB"><img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" title="{MSG: moved_thread_message}" alt="" /></td>
-<td class="tt">{MSG: was_moved_msg}</td>
-</tr>
+<div><img src="{THEME_IMAGE_ROOT}/moved{DEF: img_ext}" title="{MSG: moved_thread_message}" alt="" /></div>
+{MSG: was_moved_msg}
 {SECTION: END}
 
 {SECTION: max_depth_reached_lnk}
@@ -73,42 +68,30 @@
 {SECTION: END}
 
 {SECTION: max_depth_reached maximum allowed depth of thread reached}
-<tr>
-<td class="RowStyleB" colspan="2">&nbsp;</td>
-<td class="tt" style="padding-left: {FUNC: ($width += 20)}px"><a href="{TEMPLATE: max_depth_reached_lnk}" class="big">{MSG: threadt_more}</a></td>
-</tr>
+<div style="padding-left: {FUNC: ($width += 20)}px"><a href="{TEMPLATE: max_depth_reached_lnk}">{MSG: threadt_more}</a></div>
 {SECTION: END}
 
 {SECTION: thread_list}
-<table cellspacing="0" cellpadding="2" class="ContentTable">
 {TEMPLATE-DATA: announcements}
 {TEMPLATE-DATA: thread_list_table_data}
-</table>
 {SECTION: END}
 
 {SECTION: thread_sep_e}
-</table></td></tr>
+
 {SECTION: END}
 
 {SECTION: thread_sep_s}
-<tr><td><table border="0" cellspacing="0" cellpadding="0" class="tt">
 {SECTION: END}
 
 {PAGE: THREAD_PAGE shows the threads in a particular forum}
 {TEMPLATE: header}
 {TEMPLATE: usercp}
 {TEMPLATE-DATA: admin_cp}
-<table class="wa" border="0" cellspacing="0" cellpadding="0"><tr>
-<td class="al wa">{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{IF: _uid}{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}</td>
-<td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
-</tr></table>
+{FUNC: draw_forum_path($frm->cat_id, $frm->name)}<br />{TEMPLATE: show_links}<br />{IF: _uid}{IF: $frm->subscribed}{TEMPLATE: unsubscribe_link}{ELSE}{TEMPLATE: subscribe_link}{ENDI}{ENDIF}{IF: (_uid && ($MOD || $frm->group_cache_opt & 2048))}{TEMPLATE: thread_merge_t}{ENDIF}
+{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}
 {TEMPLATE: thread_list}
-<table border="0" cellspacing="0" cellpadding="0" class="wa">
-<tr>
-<td class="vt">{TEMPLATE-DATA: page_pager}&nbsp;</td>
-<td class="GenText nw vb ar">{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}</td>
-</tr>
-</table>
+{TEMPLATE-DATA: page_pager}
+{TEMPLATE: flat_view}&nbsp;{TEMPLATE: new_thread_link}
 {FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 {IF: _uid}{TEMPLATE: thread_mark_all_read}{ELSE}{TEMPLATE: thread_pdf_rdf}{END}
 {TEMPLATE: thread_legend}
