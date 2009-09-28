@@ -94,7 +94,7 @@ no_unread_locked:		This topic has been locked
 no_unread_msg:			This topic has no unread messages
 no_unread_msg_unreg:		The read &amp; unread messages are only tracked for registered users
 num_pages:			{VAR: ttl_pg} pages:
-num_votes:			{VAR: obj->total_votes} vote(s)
+num_votes:			{VAR: obj->total_votes} votes
 occupation:			Occupation:
 off:				OFF
 on:				ON
@@ -129,7 +129,7 @@ sel_unanswered_posts_desc:	Toggle the un-answered messages filter (will show onl
 sel_unread_messages:		Unread Messages
 sel_unread_messages_desc:	Toggle unread messages filter (will only show unread messages)
 send:				Send
-send_pm_desc:			Send a private message to this user
+send_pm_desc:			write message
 sender_email:			Sender E-mail:
 sender_name:			Sender Name:
 show_posts_by:			Show Messages by: {VAR: u_alias}

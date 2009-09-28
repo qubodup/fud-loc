@@ -81,11 +81,11 @@
 {SECTION: END}
 
 {SECTION: dmsg_level_image}
-&nbsp;<img src="images/{VAR: obj->level_img}" alt="" />
+<img src="images/{VAR: obj->level_img}" alt="" />
 {SECTION: END}
 
 {SECTION: dmsg_avatar}
-{VAR: obj->avatar_loc}{TEMPLATE-DATA: level_image}
+{VAR: obj->avatar_loc}<!--{TEMPLATE-DATA: level_image}-->
 {SECTION: END}
 
 {SECTION: dmsg_reg_user_link_lnk}
@@ -203,7 +203,7 @@
 {SECTION: END}
 
 {SECTION: mini_dmsg_poll}
-{VAR: obj->poll_name}<span class="vt">[ {MSG: num_votes} ]</span>
+{VAR: obj->poll_name} {MSG: num_votes}
 {TEMPLATE-DATA: poll_data}
 {SECTION: END}
 
@@ -213,7 +213,7 @@
 
 {SECTION: dmsg_poll}
 <form action="{TEMPLATE: dmsg_poll_lnk}" method="post">{DEF: _hs}
-{VAR: obj->poll_name}<span class="ptp">[ {MSG: num_votes} ]</span>
+{VAR: obj->poll_name} {MSG: num_votes}
 {TEMPLATE-DATA: poll_data}
 <div class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA} ar"><input type="submit" class="button" name="pl_vote" value="{MSG: vote_button}">&nbsp;{IF: $obj->total_votes}<input type="submit" class="button" name="pl_res" value="{MSG: view_results}">{ENDIFI}</div>
 <input type="hidden" name="pl_view" value="{VAR: obj->poll_id}"></form>
@@ -289,7 +289,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_edit_link}
-<a href="{TEMPLATE: dmsg_edit_link_lnk}">{MSG: groupmgr_edit}</a>
+ | <a href="{TEMPLATE: dmsg_edit_link_lnk}">{MSG: groupmgr_edit}</a> | 
 {SECTION: END}
 
 {SECTION: dmsg_reply_link_lnk}
@@ -297,7 +297,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_link}
-<a href="{TEMPLATE: dmsg_reply_link_lnk}">{MSG: p_REPLY}</a>
+<a href="{TEMPLATE: dmsg_reply_link_lnk}">{MSG: p_REPLY}</a> | 
 {SECTION: END}
 
 {SECTION: dmsg_quote_link_lnk}
@@ -309,17 +309,21 @@
 {SECTION: END}
 
 {SECTION: dmsg_message_toolbar message toolbar, normally contains post/quote type buttons}
-{IF: $obj->user_id}
-  <a href="{TEMPLATE: dmsg_user_profile_lnk}"></a>
-  {IF: ($o1 & 4194304 && $a & 16)}
-    <a href="{TEMPLATE: dmsg_email_link_lnk}"><img alt="" src="{THEME_IMAGE_ROOT}/msg_email.gif" /></a>
-  {ENDIFI}
-  {IF: $o1 & 1024}
-    <a href="{TEMPLATE: dmsg_private_msg_link_lnk}"><img alt="{MSG: send_pm_desc}" title="{MSG: send_pm_desc}" src="{THEME_IMAGE_ROOT}/msg_pm.gif" /></a>
+{IF: !$hide_controls}
+  {IF: $obj->user_id}
+    {IF: ($o1 & 4194304 && $a & 16)}
+      <a href="{TEMPLATE: dmsg_email_link_lnk}">write email</a>
+    {ENDIFI}
+    {IF: $o1 & 1024}
+      <a href="{TEMPLATE: dmsg_private_msg_link_lnk}">{MSG: send_pm_desc}</a>
+    {ENDIFI}
   {ENDIFI}
 {ENDIFI}
-<div>{TEMPLATE-DATA: reply_link} | {TEMPLATE-DATA: quote_link}{IF: $perms & 32} | {TEMPLATE-DATA: edit_link} | <a href="{TEMPLATE: dmsg_delete_link_lnk}">{MSG: groupmgr_delete}</a>{ENDIFI}</div>
+{SECTION: END}
 
+{SECTION: control_line}
+<div class="postControlLine">{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}{TEMPLATE: ip}{IF: $perms & 32}{TEMPLATE-DATA: edit_link}<a href="{TEMPLATE: dmsg_delete_link_lnk}">{MSG: groupmgr_delete}</a>{ENDIFI}
+</div>
 {SECTION: END}
 
 {SECTION: dmsg_normal_message_body}
@@ -343,45 +347,26 @@
 <div>{TEMPLATE: dmsg_self}<div class="postNextPrev">{TEMPLATE-DATA: prev_message} {TEMPLATE-DATA: next_message}</div></div>
 <div class="postDateLine">{TEMPLATE: dmsg_post_date} {TEMPLATE-DATA: modified_message} {TEMPLATE: report}</div>
 <!--{TEMPLATE-DATA: rpl}-->
-{TEMPLATE-DATA: avatar}
-{TEMPLATE-DATA: online_indicator}
 {TEMPLATE-DATA: user_link}
-<!--{IF: !$hide_controls}
-  {IF: $obj->flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}
-    <img src="images/flags/{VAR: obj->flag_cc}.png" title="{VAR: obj->flag_country}" alt="{VAR: obj->flag_country}"/>
-  {ENDIFI}
-  {IF: $obj->user_id}
-    {MSG: posts_c}
-    {VAR: obj->posted_msg_count}
-    {MSG: registered}
-    {TEMPLATE: dmsg_join_date}
-    {TEMPLATE-DATA: location}
-  {ENDIFI}
-{ENDIFI}
-{TEMPLATE-DATA: dmsg_tags}
-{TEMPLATE-DATA: dmsg_bd_il}
-{TEMPLATE-DATA: dmsg_im_row}-->
-{IF: !$hide_controls}
-  {IF: ($obj->host_name && $o1 & 268435456)}
-    {MSG: from} {VAR: obj->host_name}
-  {ENDIFI}
-  {IF: ($b & 1048576 || $usr->md || $o1 & 134217728)}
-    {MSG: dmsg_ip} <a href="{TEMPLATE: dmsg_ip_address_url}" target="_blank">{VAR: obj->ip_addr}</a>
-  {ENDIFI}
-{ENDIFI}
-
+{TEMPLATE-DATA: online_indicator}
+<div class="userDropDown">{TEMPLATE-DATA: avatar}{TEMPLATE: dmsg_message_toolbar}</div>
 <div class="singlePostWrapper">{TEMPLATE-DATA: msg_body}</div>
-
 {TEMPLATE-DATA: drawmsg_file_attachments}
 {IF: !$hide_controls}
   {IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}
     {VAR: obj->sig}
   {ENDIFI}
 {ENDIFI}
-
-{IF: !$hide_controls}{TEMPLATE: dmsg_message_toolbar}{ENDIFI}
-
+{TEMPLATE: control_line}
 {MAIN_SECTION: END}
+
+{SECTION: ip}
+{IF: !$hide_controls}
+  {IF: ($b & 1048576 || $usr->md || $o1 & 134217728)}
+    | <a href="{TEMPLATE: dmsg_ip_address_url}" target="_blank">{VAR: obj->ip_addr}</a>
+  {ENDIFI}
+{ENDIFI}
+{SECTION: END}
 
 {SECTION: dmsg_no_msg_body}
 {MSG: no_msg_body}
@@ -417,4 +402,27 @@
 
 {SECTION: dmsg_num_wrap}
 <span class="small"> [{TEMPLATE: dmsg_num}]</span>
+{SECTION: END}
+
+{SECTION: superfluous}
+<!--{IF: !$hide_controls}
+  {IF: $obj->flag_cc && $GLOBALS['FUD_OPT_3'] & 524288}
+    <img src="images/flags/{VAR: obj->flag_cc}.png" title="{VAR: obj->flag_country}" alt="{VAR: obj->flag_country}"/>
+  {ENDIFI}
+  {IF: $obj->user_id}
+    {MSG: posts_c}
+    {VAR: obj->posted_msg_count}
+    {MSG: registered}
+    {TEMPLATE: dmsg_join_date}
+    {TEMPLATE-DATA: location}
+  {ENDIFI}
+{ENDIFI}
+{TEMPLATE-DATA: dmsg_tags}
+{TEMPLATE-DATA: dmsg_bd_il}
+{TEMPLATE-DATA: dmsg_im_row}
+{IF: !$hide_controls}
+  {IF: ($obj->host_name && $o1 & 268435456)}
+    {MSG: from} {VAR: obj->host_name}
+  {ENDIFI}
+{ENDIFI}-->
 {SECTION: END}
