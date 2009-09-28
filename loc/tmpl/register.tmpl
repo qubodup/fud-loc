@@ -168,7 +168,7 @@
 <tr class="RowStyleA"><td class="RowStyleA" valign="top">{MSG: register_bio}<br /><span class="SmallText">{MSG: register_bio_desc}</span></td><td><textarea name="reg_bio" rows="5" cols="35">{VAR: reg_bio}</textarea></td></tr>
 <tr><th colspan="2">{MSG: register_prefs}</th></tr>
 {IF: $FUD_OPT_1 & 32768}
-<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br /><b>{MSG: register_max_sig_len} </b>{MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="8" cols="50">{VAR: reg_sig}</textarea></td></tr>
+<tr class="RowStyleA"><td class="vt">{MSG: register_sig}<br /><span class="SmallText">{MSG: register_sig_desc}<br /></span>{FUNC: tmpl_post_options('sig')}{IF: $FORUM_SIG_ML}<br />{MSG: register_max_sig_len} {MSG: register_sig_limit}{ENDIFI}</td><td>{FUNC: draw_err('reg_sig')}<textarea name="reg_sig" rows="8" cols="50">{VAR: reg_sig}</textarea></td></tr>
 {ENDIF}
 <tr class="RowStyleA"><td>{MSG: register_timezone}</td><td><select name="reg_time_zone" class="SmallText" style="width: 390px">{TEMPLATE-DATA: timezone_select}</select></td></tr>
 <tr class="RowStyleA"><td>{MSG: register_ignore_admin}</td><td>{TEMPLATE-DATA: ignore_admin_radio}</td></tr>

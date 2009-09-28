@@ -31,7 +31,7 @@
 {REF: topic_rating.tmpl}
 
 {SECTION: first_unread_message_link}
-| <a href="{TEMPLATE: first_unread_message_link_lnk}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>&nbsp;
+| <a href="{TEMPLATE: first_unread_message_link_lnk}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
@@ -43,11 +43,11 @@
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
-<a href="{TEMPLATE: threaded_view_lnk}"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" /></a>&nbsp;
+<a href="{TEMPLATE: threaded_view_lnk}"><img title="{MSG: switch_to_thread_view}" alt="{MSG: switch_to_thread_view}" src="{THEME_IMAGE_ROOT}/tree_view.gif" /></a>
 {SECTION: END}
 
 {SECTION: new_thread new thread link}
-<a href="{TEMPLATE: new_thread_lnk}"><img alt="{MSG: new_thread}" src="{THEME_IMAGE_ROOT}/new_thread.gif" /></a>
+<a href="{TEMPLATE: new_thread_lnk}"></a>
 {SECTION: END}
 
 {SECTION: post_reply}
@@ -55,7 +55,7 @@
 {SECTION: END}
 
 {SECTION: rate_thread rate thread select}
-<form id="RateFrm" action="post">
+<form action="post">
 <select onchange="if (this.value) topicVote(this.value, {VAR: frm->id}, \'{DEF: s}\', \'{VAR: usr->sq}\');">
 <option>{MSG: rate_thread}</option>
 <option value="1">1 {MSG: rate_worst}</option>
@@ -86,15 +86,14 @@
   {TEMPLATE-DATA: subscribe_status}
 </div>
 <div id="main">
-<a name="page_top"> </a>
-{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
-{IF: $frm->tdescr}<span class="">({VAR: frm->tdescr})</span>{ENDIF} 
+<div>{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}</div>
+{IF: $frm->tdescr}<div class="">{VAR: frm->tdescr}</div>{ENDIF} 
 {IF: $FUD_OPT_2 & 4096 && $frm->rating}<span class="">{TEMPLATE: thread_rating}</span>{ENDIF}
-{IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>&nbsp;{ENDIF}
+{IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>{ENDIF}
 {TEMPLATE-DATA: first_unread_message_link}
 {TEMPLATE: post_reply}
 <!--{TEMPLATE: new_thread}--><!--{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}-->
-<table>{TEMPLATE-DATA: message_data}</table>
+{TEMPLATE-DATA: message_data}
 {TEMPLATE: post_reply}
 {TEMPLATE-DATA: page_pager}
 {IF: (!empty($prev_thread_link) || !empty($next_thread_link))}

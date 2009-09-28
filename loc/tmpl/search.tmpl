@@ -50,11 +50,11 @@
 
 {SECTION: search_entry}
 <tr>
-	<td class="RowStyleC vt"><b>{FUNC: ++$i}</b></td>
+	<td class="RowStyleC vt">{FUNC: ++$i}</td>
 	<td class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
-		<b>{MSG: search_forum}</b>: <a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a> &laquo;&raquo;
-		<b>{MSG: search_posted_on}</b>: <span class="DateText">{TEMPLATE: search_post_date}</span> &laquo;&raquo;
-		<b>{MSG: by}</b> {IF: !empty($r->poster_id)}{TEMPLATE: registered_poster}{ELSE}{TEMPLATE: unregistered_poster}{END}<br />
+		{MSG: search_forum}: <a href="{TEMPLATE: search_entry_lnk1}">{VAR: r->forum_name}</a> &laquo;&raquo;
+		{MSG: search_posted_on}: <span class="DateText">{TEMPLATE: search_post_date}</span> &laquo;&raquo;
+		{MSG: by} {IF: !empty($r->poster_id)}{TEMPLATE: registered_poster}{ELSE}{TEMPLATE: unregistered_poster}{END}<br />
 		<a href="{TEMPLATE: search_entry_lnk}">{VAR: r->subject}</a><br />
 		{FUNC: trim_body(read_msg_body($r->foff, $r->length, $r->file_id))}
 		{IF: ($is_a || $r->md)}

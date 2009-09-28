@@ -19,7 +19,7 @@
 {SECTION: END}
 
 {SECTION: dpmsg_location}
-<br /><b>{MSG: location}</b> {VAR: location}
+<br />{MSG: location} {VAR: location}
 {SECTION: END}
 
 {SECTION: dpmsg_no_location}
@@ -144,9 +144,9 @@
 <tr class="MsgR2"><td class="MsgR2" colspan="2"><table cellspacing="0" cellpadding="0" class="ContentTable">
 <tr class="MsgR2">
 {TEMPLATE-DATA: avatar}
-<td class="msgud">{TEMPLATE-DATA: online_indicator}{IF: !$mini}{TEMPLATE: dpmsg_profile_link}{ELSE}{VAR: obj->alias}{ENDI}{IF: !$mini}<br /><b>{MSG: posts_c}</b> {VAR: obj->posted_msg_count}<br /><b>{MSG: registered}</b> {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}</td>
+<td class="msgud">{TEMPLATE-DATA: online_indicator}{IF: !$mini}{TEMPLATE: dpmsg_profile_link}{ELSE}{VAR: obj->alias}{ENDI}{IF: !$mini}<br />{MSG: posts_c} {VAR: obj->posted_msg_count}<br />{MSG: registered} {TEMPLATE: dmsg_join_date} {TEMPLATE-DATA: location}{ENDIFI}</td>
 <td class="msgud">{TEMPLATE-DATA: dmsg_tags}</td>
-<td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}{IF: !$mini && $obj->host_name && $o1 & 268435456}<b>{MSG: from}</b> {VAR: obj->host_name}<br />{ENDIFI}</td>
+<td class="msgot">{TEMPLATE-DATA: buddy_link}{TEMPLATE-DATA: dmsg_im_row}{IF: !$mini && $obj->host_name && $o1 & 268435456}{MSG: from} {VAR: obj->host_name}<br />{ENDIFI}</td>
 </tr></table></td>
 </tr>
 <tr><td class="MsgR3" colspan="2">{TEMPLATE-DATA: msg_body}{TEMPLATE-DATA: file_attachments}{IF: ($obj->sig && $o1 & 32768 && $obj->pmsg_opt & 1 && $b & 4096)}<p /><hr class="sig" />{VAR: obj->sig}{ENDIFI}</td></tr>

@@ -25,14 +25,14 @@
 <tr><td>
 <table border="0" cellspacing="0" cellpadding="3" class="wa">
 	<tr class="RowStyleB">
-		<td class="al nw vt SmallText"><b>{MSG: move_request_by}</b> <a href="{TEMPLATE: thr_exch_entry_lnk}">{VAR: obj->alias}</a><br /></td>
-		<td class="ac wa vt SmallText"><b>{MSG: move_reason}</b><br /><table border="1" cellspacing="1" cellpadding="0"><tr><td class="al">&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table></td>
+		<td class="al nw vt SmallText">{MSG: move_request_by} <a href="{TEMPLATE: thr_exch_entry_lnk}">{VAR: obj->alias}</a><br /></td>
+		<td class="ac wa vt SmallText">{MSG: move_reason}<br /><table border="1" cellspacing="1" cellpadding="0"><tr><td class="al">&nbsp;{VAR: obj->reason_msg} &nbsp;</td></tr></table></td>
 	</tr>
 	<tr class="RowStyleC">
 		<td colspan="2">
 			<table border="0" cellspacing="0" cellpadding="3" class="wa">
 			<tr>
-				<td class="al SmallText"><b>{MSG: thr_exch_orig_forum}</b> {VAR: obj->sf_name}<br /><b>{MSG: thr_exch_dest_forum}</b> {VAR: obj->df_name}<br /><b>{MSG: thread}</b> <a href="{TEMPLATE: thr_exch_entry_lnk1}">{VAR: obj->subject}</a></td>
+				<td class="al SmallText">{MSG: thr_exch_orig_forum} {VAR: obj->sf_name}<br />{MSG: thr_exch_dest_forum} {VAR: obj->df_name}<br />{MSG: thread} <a href="{TEMPLATE: thr_exch_entry_lnk1}">{VAR: obj->subject}</a></td>
 				<td class="ar">[<a href="{TEMPLATE: thr_exch_entry_lnk2}">{MSG: thr_exch_accept}</a>]&nbsp;&nbsp;[<a href="{TEMPLATE: thr_exch_entry_lnk3}">{MSG: thr_exch_decline}</a>]</td>
 			</tr>
 			</table>

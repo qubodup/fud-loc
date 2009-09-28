@@ -206,7 +206,7 @@ list_referes_referrals:		Referrals
 list_referes_members:		Members Referred
 list_referes_member:		Member
 referals_none:			No referrals yet.
-referals_refered_by:		Forum members referred by: <b><a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a></b>
+referals_refered_by:		Forum members referred by: <a href="{TEMPLATE: referals_refered_by_lnk}" class="thLnk">{VAR: p_user[1]}</a>
 referals_post_count:		Message Count
 referals_registered_on:		Registered On
 referals_action:		Action
@@ -222,7 +222,7 @@ pmsg_selected:			Selected
 pmsg_delete:			Delete
 cur_ppage_pm:			Private Messaging
 writing_pm:			Writing a Private Message
-browsing_folder:		Browsing <b>{VAR: folders[$folder_id]}</b> folder
+browsing_folder:		Browsing {VAR: folders[$folder_id]} folder
 inbox:				Inbox
 draft:				Draft
 sent:				Sent
@@ -261,8 +261,8 @@ finduser_action:		Action
 yes:				Yes
 no:				No
 register_email:			E-mail
-edit_time_limit:		<br /><b>Editing Time Limit</b>: <b>{GVAR: EDIT_TIME_LIMIT}</b> minutes
-no_edit_time_limit:		<br /><b>Editing Time Limit</b>: <b>Unlimited</b>
+edit_time_limit:		<br />Editing Time Limit: {GVAR: EDIT_TIME_LIMIT} minutes
+no_edit_time_limit:		<br />Editing Time Limit: Unlimited
 pmuserloc_login:		Login:
 pmuserloc_submit:		Submit
 pmuserloc_user:			User
@@ -281,7 +281,7 @@ register_avatar_type:		Avatar Type:
 register_del_avatar:		Delete Avatar
 register_avatar:		Avatar:
 register_sel_avatar:		Select Avatar
-register_custom_avatar_rules:	The custom avatar will not appear until it is approved by the administrator.<br /><span class="SmallText">The avatar, should be no larger than <b>{GVAR: CUSTOM_AVATAR_MAX_DIM} pixels</b> and must be in <b>jpg</b>, <b>gif</b> or <b>png</b> format.</span>
+register_custom_avatar_rules:	The custom avatar will not appear until it is approved by the administrator.<br /><span class="SmallText">The avatar, should be no larger than {GVAR: CUSTOM_AVATAR_MAX_DIM} pixels and must be in jpg, gif or png format.</span>
 register_custom_avatar_url:	Custom Avatar URL:
 register_preview:		Preview
 register_custom_avatar_upload:	Custom Avatar File:
@@ -454,7 +454,7 @@ search_no_results:		No Results
 search_all_forums:		Search All Forums
 search_in_forum:		Search in Forum:
 search_forum_search:		Forum Search
-move_thread_to:			Move topic <b>{VAR: thr->subject}</b> to:
+move_thread_to:			Move topic {VAR: thr->subject} to:
 remail_email_topic:		E-mail This Topic to a Friend
 remail_your_name:		Your Name:
 remail_your_email:		Your E-mail:
@@ -524,8 +524,8 @@ tabs_referrals:			Referrals
 tabs_buddy_list:		Buddy List
 tabs_ignore_list:		Ignore List
 tabs_private_messaging:		Private Messaging
-single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: <b>{VAR: data[3]}</b><p />
-thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: <b>{VAR: data[3]}</b><p />
+single_msg_delete:		You are about to <span class="ErrorText">DELETE</span> the message titled: {VAR: data[3]}<p />
+thread_delete:			You are about to <span class="ErrorText">DELETE</span> the <span class="ErrorText">ENTIRE TOPIC</span> titled: {VAR: data[3]}<p />
 delete_proceed:			<span class="fb">Do you wish to proceed?</span>
 delete_yes:			Yes
 delete_no:			No
@@ -673,17 +673,17 @@ tree_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
-post_opt_html_on:		<b>HTML</b> is <b>ON</b>
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank"><b>FUDcode</b> is <b>ON</b></a>
-post_opt_images_on:		<b>Images</b> are <b>ON</b>
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank"><b>Smilies</b> are <b>ON</b></a>
-post_opt_html_off:		<b>HTML</b> code is <b>OFF</b>
-post_opt_fud_off:		<b>FUDcode</b> is <b>OFF</b>
-post_opt_images_off:		<b>Images</b> are <b>OFF</b>
-post_opt_smilies_off:		<b>Smilies</b> are <b>OFF</b>
+post_opt_html_on:		HTML is ON
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode is ON</a>
+post_opt_images_on:		Images are ON
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank">Smilies are ON</a>
+post_opt_html_off:		HTML code is OFF
+post_opt_fud_off:		FUDcode is OFF
+post_opt_images_off:		Images are OFF
+post_opt_smilies_off:		Smilies are OFF
 post_opt:			Forum Options
 register_change_passwd:		change password
-install_script_present_error:	For security reasons, you must remove the installation script at <b>{GVAR: WWW_ROOT_DISK}install.php</b> before you can use the forum.
+install_script_present_error:	For security reasons, you must remove the installation script at {GVAR: WWW_ROOT_DISK}install.php before you can use the forum.
 approved_avatar_title:		Your custom avatar was approved.
 approved_avatar_msg:		Your avatar was approved by the administrator. It should now appear as your avatar on all your messages. If you do not see it, or see your old avatar, it is because your browser has cached the page. Try refreshing it once or twice. In most cases this will solve the caching problem.
 unapproved_avatar_title:	Your custom avatar was declined.
@@ -699,7 +699,7 @@ thr_exch_decline:		decline topic
 thr_exch_orig_forum:		Original Forum:
 thr_exch_dest_forum:		Destination Forum:
 thr_exch_no_threads:		No topics waiting approval.
-thr_exch_decl_reason:		Reason for declining topic <b>{VAR: data->subject}</b> into forum <b>{VAR: data->f2_name}</b>
+thr_exch_decl_reason:		Reason for declining topic {VAR: data->subject} into forum {VAR: data->f2_name}
 thr_exch_submit:		Submit
 exch_decline_ttl:		Moving of topic {VAR: data->subject} into forum {VAR: data->f2_name} was declined.
 ppost_original_msg:		message you are forwarding or replying to
@@ -741,7 +741,7 @@ p_SML:				Use smilies
 p_IMG:				Use image tags
 p_SEARCH:			Can Search
 group_mgr_search:		<a href="javascript://" onClick="javascript: window_open(\'{TEMPLATE: group_mgr_search_lnk}\', \'user_list\', 325,250);">Find User</a>
-group_mgr_indicator:		Currently Editing: <b>{VAR: grp->name}</b>
+group_mgr_indicator:		Currently Editing: {VAR: grp->name}
 rate_worst:			Worst
 rate_best:			Best
 post_quote_msg:			{VAR: msg->login} wrote on {TEMPLATE: make_report_date}
@@ -749,7 +749,7 @@ post_quote:			Quote:
 userinfo_referals:		Referred Users:
 userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		No space left!
-pm_no_space_msg:		Your private message folders exceed the allowed storage size of <b>{GVAR: MAX_PMSG_FLDR_SIZE} bytes</b>. They currently contain <b>{VAR: fldr_size} bytes</b> worth of messages.<br /><br /><span class="ErrorText">Remove some old messages to clear up space.</span>.
+pm_no_space_msg:		Your private message folders exceed the allowed storage size of {GVAR: MAX_PMSG_FLDR_SIZE} bytes. They currently contain {VAR: fldr_size} bytes worth of messages.<br /><br /><span class="ErrorText">Remove some old messages to clear up space.</span>.
 pm_space_indct_msg:		Your private message folders are {VAR: percent_full}% full.
 th_expr_never:			Never
 th_expr_one_hr:			1 Hour
@@ -864,7 +864,7 @@ threadt_update:			Browsing forum (tree view) <a href="{TEMPLATE: threadt_update_
 mmod_delete_cofirm_ttl:		Confirm Topic/Message Deletion
 spell_alts:			no alternatives
 insert_uploaded_image:		Insert image into message body
-finduser_help:			The search engine will automatically add * mask to your query, the <b>search is case-sensitive</b>.<br />ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
+finduser_help:			The search engine will automatically add * mask to your query, the search is case-sensitive.<br />ex. to search for all users who&#39;s login begins with an &#39;a&#39;, enter &#39;a&#39; into the search box.
 back_to_top:			Back to Top
 pm_err_disabled_title:		Private Messaging Disabled
 pm_err_disabled_msg:		You cannot send private messages until you enable the &#39;Allow Private Messages&#39; option in your profile.
@@ -875,16 +875,16 @@ saved:				Saved
 register_err_time_limit:	The limit of one registration per {GVAR: REG_TIME_LIMIT} seconds has been reached. Please wait {VAR: reg_limit_reached} second(s), and then try to register once again.
 register_affero:		Affero Username:<br /><span class="SmallText">If you have an <a href="http://www.affero.com/ca/{VAR-URL: affero_domain['host']}" target="_blank">Affero</a> username, enter it here.</span>
 im_affero:			Affero Username
-register_err_avatardimtobig:	Avatar dimensions of <b>({VAR: img_info[0]}x{VAR: img_info[1]})</b> exceed the allowed dimensions of <b>({GVAR: CUSTOM_AVATAR_MAX_DIM})</b> pixels.
+register_err_avatardimtobig:	Avatar dimensions of ({VAR: img_info[0]}x{VAR: img_info[1]}) exceed the allowed dimensions of ({GVAR: CUSTOM_AVATAR_MAX_DIM}) pixels.
 buddy_offline:			{VAR: r[2]} is currently offline
 buddy_online:			{VAR: r[2]} is currently online
 sml_no_smilies:			No emoticons available.
 login_unapproved_account_ttl:	Unapproved Account
 login_unapproved_account_msg:	The administrator of the forum has chosen to confirm each new account manually before activation. Your account has not yet been confirmed, therefore you will not be able to access some of the features available to confirmed members.
 remove_from_buddy_list:		remove from buddy list
-iemail_msg_author:		<b>Author:</b> {VAR: obj->alias}
-iemail_msg_subject:		<b>Subject:</b> {VAR: obj->subject}
-iemail_msg_date:		<b>Date:</b> {TEMPLATE: dmsg_post_date}
+iemail_msg_author:		Author: {VAR: obj->alias}
+iemail_msg_subject:		Subject: {VAR: obj->subject}
+iemail_msg_date:		Date: {TEMPLATE: dmsg_post_date}
 iemail_msg_reply:		Reply
 iemail_msg_quote:		Quote
 iemail_msg_view:		View Topic/Message
@@ -909,8 +909,8 @@ post_mod_msg_notify_msg:	A new message titled "{VAR: msg_post->subject}" was jus
 thread_printable_pdf:		Generate printable PDF
 thread_syndicate:		Syndicate this forum (XML)
 reg_conf_title:			Registration Confirmation
-reg_conf_email:			<b>E-mail Confirmation</b><br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you have specified is correct. Once you confirm your account, you will be able to access forum features available only to confirmed, registered users.
-reg_conf_account:		<b>Account Confirmation</b><br />Before your account is made active it needs to be approved by the administrator(s). Once that happens you will receive an e-mail indicating that your account has been confirmed. In the meantime you can log-into your account, however you will not be able to access certain features.
+reg_conf_email:			E-mail Confirmation<br />An e-mail has been sent to you containing a special URL that you will need to access prior to your account being activated. If you do not receive this e-mail in the next several minutes, login to your account and make sure that the e-mail address you have specified is correct. Once you confirm your account, you will be able to access forum features available only to confirmed, registered users.
+reg_conf_account:		Account Confirmation<br />Before your account is made active it needs to be approved by the administrator(s). Once that happens you will receive an e-mail indicating that your account has been confirmed. In the meantime you can log-into your account, however you will not be able to access certain features.
 forum_banned_user:		Your prior actions have resulted in you being permanently banned from this forum. Goodbye.
 mnav_description:		Posts Navigator
 mnav_date_limit:		Date range:
@@ -975,13 +975,13 @@ post_err_mod_forum_edit_ttl:	ERROR
 post_err_mod_forum_edit_msg:	You cannot edit messages in a moderated forum.
 dmsg_num:			message #{VAR: obj->id}
 postcheck_session_invalid:	Your session has expired. Please re-submit the form. Sorry for the inconvenience.
-delete_message_extra_desc:	<b>Optional</b><br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
+delete_message_extra_desc:	Optional<br />Specify a reason for the deletion of the message, which will be sent to the author via a private message.
 delete_message_extra_body:	Include the body of the removed message that will be sent to the author.
 delete_msg_removed_ttl:		Your message was removed by administration staff.
 delete_msg_pm_body:		Original message
 delete_msg_pm_subject:		Subject: {VAR: data[15]}
-ip_no_whois:			Whois information for <b>{VAR: ip}</b> is not available.
-ip_whois_title:			<b>ISP Information</b><br />
+ip_no_whois:			Whois information for {VAR: ip} is not available.
+ip_whois_title:			ISP Information<br />
 register_theme:			Theme:
 pmsg_trash:			Empty Trash
 uc_new_pm:			New Private Messages

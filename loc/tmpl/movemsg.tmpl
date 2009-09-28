@@ -29,10 +29,10 @@
 <td class="RowStyleA">
 <table cellspacing="1" cellpadding="2" class="ContentTable">
 <tr class="RowStyleB">
-	<td class="SmallText">
-	<b>{MSG: split_th_post_by}</b> {IF: $r->alias}{VAR: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
-	<b>{MSG: split_th_posted_on}</b> {TEMPLATE: search_post_date}<br />
-	<b>{MSG: split_th_subject}</b> {VAR: r->subject}
+	<td>
+	{MSG: split_th_post_by} {IF: $r->alias}{VAR: r->alias}{ELSE}{VAR: anon_alias}{ENDI}<br />
+	{MSG: split_th_posted_on} {TEMPLATE: search_post_date}<br />
+	{MSG: split_th_subject} {VAR: r->subject}
 	</td>
 </tr>
 <tr class="RowStyleA"><td>{FUNC: read_msg_body($r->foff, $r->length, $r->file_id)}</td></tr>

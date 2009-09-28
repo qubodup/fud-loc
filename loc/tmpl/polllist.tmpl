@@ -29,16 +29,16 @@
 
 {SECTION: poll_entry}
 <tr class="{ALT-VAR: search_alt RowStyleA RowStyleB}">
-	<td class="wa">{VAR: obj->name}</td>
-	<td class="nw">{TEMPLATE: poll_date}</td>
-	<td class="nw">{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: poll_entry_lnk}">{VAR: obj->alias}</a></td>
-	<td class="nw ac">{VAR: obj->total_votes}</td>
-	<td class="nw ac"> <b>::</b> <a href="{TEMPLATE: vote_lnk_lnk}">{MSG: polllist_vote}</a> {TEMPLATE-DATA: view_res_lnk} <b>::</b></td>
+	<td>{VAR: obj->name}</td>
+	<td>{TEMPLATE: poll_date}</td>
+	<td>{TEMPLATE-DATA: online_indicator}<a href="{TEMPLATE: poll_entry_lnk}">{VAR: obj->alias}</a></td>
+	<td>{VAR: obj->total_votes}</td>
+	<td> <a href="{TEMPLATE: vote_lnk_lnk}">{MSG: polllist_vote}</a> {TEMPLATE-DATA: view_res_lnk}</td>
 </tr>
 {SECTION: END}
 
 {SECTION: poll_view_res_lnk}
-<b>::</b> <a href="{TEMPLATE: poll_view_res_lnk_lnk}">{MSG: polllist_view_results}</a>
+<a href="{TEMPLATE: poll_view_res_lnk_lnk}">{MSG: polllist_view_results}</a>
 {SECTION: END}
 
 {SECTION: polllist_update}

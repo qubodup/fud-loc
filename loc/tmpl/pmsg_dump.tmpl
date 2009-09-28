@@ -16,8 +16,8 @@
 {SECTION: pmsg_dump_msg_entry single private message entry for message dump}
 <tr><td><table cellspacing="0" cellpadding="0" class="MsgTable">
 <tr>
-<td class="MsgR1 al vt"><b>{MSG: subject}:</b> {VAR: obj->subject}</td>
-<td class="MsgR1 vt ar DateText"><b>{MSG: by}</b> {VAR: obj->alias} <b>{MSG: pmsg_on}</b> {TEMPLATE: dmsg_post_date}</td>
+<td class="MsgR1 al vt">{MSG: subject}: {VAR: obj->subject}</td>
+<td class="MsgR1 vt ar DateText">{MSG: by} {VAR: obj->alias} {MSG: pmsg_on} {TEMPLATE: dmsg_post_date}</td>
 </tr>
 <tr><td class="MsgR3" colspan="2">{FUNC: read_pmsg_body($obj->foff, $obj->length)}</table></td></tr>
 {SECTION: END}

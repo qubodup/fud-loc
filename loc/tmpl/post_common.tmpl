@@ -199,7 +199,7 @@ function endDrag(e) {
 <tr class="RowStyleB"><td class="GenText vt nw">{MSG: file_attachments}</td><td>
 {TEMPLATE: attachment_list}
 {VAR: attach_control_error}
-<span class="SmallText"><b>{MSG: allowed_files}</b> {TEMPLATE-DATA: allowed_extensions}<br /><b>{MSG: max_file_size}</b> {VAR: max_as}Kb<br /><b>{MSG: max_files_per_msg}</b> {VAR: max_a}
+<span class="SmallText">{MSG: allowed_files} {TEMPLATE-DATA: allowed_extensions}<br />{MSG: max_file_size} {VAR: max_as}Kb<br />{MSG: max_files_per_msg} {VAR: max_a}
 {IF: $i}{TEMPLATE: attached_status}{ENDIFI}
 </span><p />
 {IF: (($i + 1) <= $max_a)}{TEMPLATE: upload_file}{ENDIF}
