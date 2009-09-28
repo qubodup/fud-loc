@@ -112,7 +112,7 @@
 {PAGE: END}
 
 {SECTION: thread_controls}
-<div class="threadControls">{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
+<div class="threadControls">{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id)} &raquo; <a href="{ROOT}?t=msg&amp;th={VAR: th}">{VAR: frm->subject}</a>
 {TEMPLATE-DATA: page_pager}
 </div>
 {SECTION: END}

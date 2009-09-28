@@ -195,7 +195,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_poll_option}
-<div class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}">{VAR: i}.<input type="radio" name="poll_opt" value="{VAR: k}" />&nbsp;&nbsp;{VAR: v[0]}</div>
+<div class="{ALT-VAR: msg_poll_alt_clr RowStyleB RowStyleA}">{VAR: i}.<input type="radio" name="poll_opt" value="{VAR: k}" />&nbsp;{VAR: v[0]}</div>
 {SECTION: END}
 
 {SECTION: dmsg_poll_result}
@@ -322,7 +322,7 @@
 {SECTION: END}
 
 {SECTION: control_line}
-<div class="postControlLine">{TEMPLATE-DATA: reply_link}{TEMPLATE-DATA: quote_link}{TEMPLATE: ip}{IF: $perms & 32}{TEMPLATE-DATA: edit_link}<a href="{TEMPLATE: dmsg_delete_link_lnk}">{MSG: groupmgr_delete}</a>{ENDIFI}
+<div class="postControlLine">{TEMPLATE-DATA: reply_link} {TEMPLATE-DATA: quote_link}{TEMPLATE: ip}{IF: $perms & 32}{TEMPLATE-DATA: edit_link} <a href="{TEMPLATE: dmsg_delete_link_lnk}">{MSG: groupmgr_delete}</a>{ENDIFI}
 </div>
 {SECTION: END}
 
@@ -385,15 +385,15 @@
 {SECTION: END}
 
 {SECTION: dmsg_reply_to}
-<!--{TEMPLATE: dmsg_num}--><a href="{TEMPLATE: dmsg_reply_to_lnk}">{MSG: dmsg_reply_to}</a>
+<a href="{TEMPLATE: dmsg_reply_to_lnk}">{MSG: dmsg_reply_to}</a>
 {SECTION: END}
 
 {SECTION: dmsg_self_lnk}
-{ROOT}?t={VAR: lnk}&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->id}#msg_{VAR: obj->id}
+{ROOT}?t=msg&amp;{DEF: _rsid}&amp;th={VAR: obj->thread_id}&amp;goto={VAR: obj->id}#msg_{VAR: obj->id}
 {SECTION: END}
 
 {SECTION: dmsg_self}
-<a class="postTitle" {IF: $obj->icon && !$hide_controls}style="background-image: url(images/message_icons/{VAR: obj->icon});"{ENDIFI} name="msg_{VAR: obj->id} msg_num_{VAR: m_num}" href="{TEMPLATE: dmsg_self_lnk}">{VAR: obj->subject}</a>
+<a name="msg_{VAR: obj->id}" /><a class="postTitle" {IF: $obj->icon && !$hide_controls}style="background-image: url(images/message_icons/{VAR: obj->icon});"{ENDIFI} name="msg_num_{VAR: m_num}" href="{TEMPLATE: dmsg_self_lnk}">{VAR: obj->subject}</a>
 {SECTION: END}
 
 {SECTION: dmsg_num}
@@ -401,7 +401,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_num_wrap}
-<span class="small"> [{TEMPLATE: dmsg_num}]</span>
+{TEMPLATE: dmsg_num}
 {SECTION: END}
 
 {SECTION: superfluous}

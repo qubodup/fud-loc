@@ -62,7 +62,7 @@
 		{IF: __fud_real_user__}{TEMPLATE: usercp_usercp}{ELSE}{TEMPLATE: register}{END}
     |
 		{IF: $is_a || ($usr->users_opt & 268435456)}{TEMPLATE: admin_control_panel} | {ENDIF}
-		<a accesskey="h" href="{TEMPLATE: usercp_lnk2}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_help{DEF: img_ext});*/" /> {MSG: faq}</a>
+		<a accesskey="h" href="{TEMPLATE: usercp_lnk2}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_help{DEF: img_ext});*/"> {MSG: faq}</a>
 		|
 		{IF: __fud_real_user__}{TEMPLATE: logout}{ELSE}{TEMPLATE: login}{END}
 	</div>
@@ -73,7 +73,7 @@
 {SECTION: END}
 
 {SECTION: login login link}
-<a href="{TEMPLATE: login_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_login{DEF: img_ext});*/" />{MSG: login}</a>
+<a href="{TEMPLATE: login_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_login{DEF: img_ext});*/">{MSG: login}</a>
 {SECTION: END}
 
 {SECTION: logout_lnk}
@@ -81,7 +81,7 @@
 {SECTION: END}
 
 {SECTION: logout logout link}
-<a href="{TEMPLATE: logout_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_logout{DEF: img_ext});*/" />{MSG: logout}</a>
+<a href="{TEMPLATE: logout_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_logout{DEF: img_ext});*/">{MSG: logout}</a>
 {SECTION: END}
 
 {SECTION: register_lnk}
@@ -89,15 +89,15 @@
 {SECTION: END}
 
 {SECTION: register register link}
-<a href="{TEMPLATE: register_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_register{DEF: img_ext});*/" /> {MSG: register}</a>
+<a href="{TEMPLATE: register_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_register{DEF: img_ext});*/"> {MSG: register}</a>
 {SECTION: END}
 
 {SECTION: usercp_usercp User control panel link}
-<a href="{TEMPLATE: usercp_usercp_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_profile{DEF: img_ext});*/" title="{MSG: profile_desc}" /> {MSG: profile}</a>
+<a href="{TEMPLATE: usercp_usercp_lnk}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_profile{DEF: img_ext});*/" title="{MSG: profile_desc}"> {MSG: profile}</a>
 {SECTION: END}
 
 {SECTION: admin_control_panel admin control panel link}
-<a href="adm/admglobal.php?S={DEF: s}&amp;SQ={GVAR: sq}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_admin{DEF: img_ext});*/" /> {MSG: admin_control_panel}</a>
+<a href="adm/admglobal.php?S={DEF: s}&amp;SQ={GVAR: sq}" style="/*background-image:url({THEME_IMAGE_ROOT}/top_admin{DEF: img_ext});*/"> {MSG: admin_control_panel}</a>
 {SECTION: END}
 
 {SECTION: usercp_usercp_lnk}
