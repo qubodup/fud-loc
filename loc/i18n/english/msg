@@ -21,7 +21,7 @@ email_to_friend:		E-mail to friend
 email_to_friend_desc:		Send the URL to this page to your friend(s) via e-mail
 email_user:			Click here to e-mail the user
 faq:				Help
-first_unread_msg:		Go to unread message(s)
+first_unread_msg:		first new post
 first_unread_msg_desc:		Go to the 1st unread message inside this topic
 flat_view:			Return to the default flat view
 forum:				Forum:
@@ -32,8 +32,8 @@ forum_old_messages:		No new messages
 from:				From:
 gender:				Gender:
 go:				Go
-goto_next_msg:			Go to next message
-goto_prev_msg:			Go to previous message
+goto_next_msg:			next
+goto_prev_msg:			previous
 home:				Home
 homepage:			Homepage:
 icq_control_panel:		ICQ Online-Message Panel
