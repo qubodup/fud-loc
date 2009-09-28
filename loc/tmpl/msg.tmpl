@@ -31,7 +31,7 @@
 {REF: topic_rating.tmpl}
 
 {SECTION: first_unread_message_link}
-| <a href="{TEMPLATE: first_unread_message_link_lnk}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>
+<a class="firstNotReadLink" href="{TEMPLATE: first_unread_message_link_lnk}" title="{MSG: first_unread_msg_desc}">{MSG: first_unread_msg}</a>
 {SECTION: END}
 
 {SECTION: sub_from_thread subscribe to thread link}
@@ -86,22 +86,20 @@
   {TEMPLATE-DATA: subscribe_status}
 </div>
 <div id="main">
-<div>{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}</div>
-{IF: $frm->tdescr}<div class="">{VAR: frm->tdescr}</div>{ENDIF} 
+{TEMPLATE: thread_controls}
+{IF: $frm->tdescr}<div class="threadDescriptionLine">{VAR: frm->tdescr}</div>{ENDIF} 
+{TEMPLATE: thread_controls_2}
 {IF: $FUD_OPT_2 & 4096 && $frm->rating}<span class="">{TEMPLATE: thread_rating}</span>{ENDIF}
 {IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>{ENDIF}
-{TEMPLATE-DATA: first_unread_message_link}
-{TEMPLATE: post_reply}
 <!--{TEMPLATE: new_thread}--><!--{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}-->
 {TEMPLATE-DATA: message_data}
-{TEMPLATE: post_reply}
-{TEMPLATE-DATA: page_pager}
-{IF: (!empty($prev_thread_link) || !empty($next_thread_link))}
+{TEMPLATE: thread_controls_2}
+{TEMPLATE: thread_controls}
+<!--{IF: (!empty($prev_thread_link) || !empty($next_thread_link))}
 {TEMPLATE-DATA: prev_thread_link}
 {TEMPLATE-DATA: next_thread_link}
-{ENDIF}
+{ENDIF}-->
 {IF: ($FUD_OPT_2 & 4096 && $perms & 1024 && !$frm->cant_rate)}{TEMPLATE: rate_thread}{ENDIF}
-{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}
 <!--<a href="javascript://" onclick="chng_focus('page_top');">{MSG: back_to_top}</a>
 {IF: $FUD_OPT_2 & 2097152}{TEMPLATE: msg_pdf_link}{ENDIF} {IF: $FUD_OPT_2 & 1048576}{TEMPLATE: msg_xml_link}{ENDIF}
 {TEMPLATE: curtime}
@@ -110,6 +108,16 @@
 {TEMPLATE: javascript}
 {TEMPLATE: footer}
 {PAGE: END}
+
+{SECTION: thread_controls}
+<div class="threadControls">{FUNC: draw_forum_path($frm->cat_id, $frm->name, $frm->forum_id, $frm->subject)}
+{TEMPLATE-DATA: page_pager}
+</div>
+{SECTION: END}
+
+{SECTION: thread_controls_2}
+<div class="threadControls">{TEMPLATE: post_reply}{TEMPLATE-DATA: first_unread_message_link}</div>
+{SECTION: END}
 
 {SECTION: javascript}
 <script type="text/javascript">
