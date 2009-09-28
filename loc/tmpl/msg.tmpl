@@ -92,7 +92,7 @@
 {IF: $FUD_OPT_2 & 4096 && $frm->rating}{TEMPLATE: thread_rating}{ENDIF}
 {IF: $FUD_OPT_2 & 1073741824}<a href="{TEMPLATE: email_page_to_friend_lnk}" title="{MSG: email_to_friend_desc}">{MSG: email_to_friend}</a>{ENDIF}
 <!--{TEMPLATE: new_thread}--><!--{IF: $FUD_OPT_3 & 2}{ELSE}{TEMPLATE: threaded_view}{END}-->
-<div class="postsWrapper">
+<div class="postBlockWrapper">
 {TEMPLATE-DATA: message_data}
 </div>
 {TEMPLATE: thread_controls_2}

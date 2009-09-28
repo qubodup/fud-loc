@@ -344,13 +344,14 @@
 {SECTION: END}
 
 {MAIN_SECTION: message_entry Message Entry (a single message)}
+<div class="postItemWrapper">
 <div>{TEMPLATE: dmsg_self}<div class="postNextPrev">{TEMPLATE-DATA: prev_message} {TEMPLATE-DATA: next_message}</div></div>
 <div class="postDateLine">{TEMPLATE: dmsg_post_date} {TEMPLATE-DATA: modified_message} {TEMPLATE: report}</div>
 <!--{TEMPLATE-DATA: rpl}-->
 {TEMPLATE-DATA: user_link}
 {TEMPLATE-DATA: online_indicator}
 <div class="userDropDown">{TEMPLATE-DATA: avatar}{TEMPLATE: dmsg_message_toolbar}</div>
-<div class="singlePostWrapper">{TEMPLATE-DATA: msg_body}</div>
+<div class="postContentWrapper">{TEMPLATE-DATA: msg_body}</div>
 {TEMPLATE-DATA: drawmsg_file_attachments}
 {IF: !$hide_controls}
   {IF: ($obj->sig && $o1 & 32768 && $obj->msg_opt & 1 && $b & 4096 && !($a & 67108864))}
@@ -358,6 +359,7 @@
   {ENDIFI}
 {ENDIFI}
 {TEMPLATE: control_line}
+</div>
 {MAIN_SECTION: END}
 
 {SECTION: ip}
