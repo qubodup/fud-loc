@@ -1,0 +1,4 @@
+== Investigate ==
+
+* submitting posting/editing of posts leads to empty page, although the action does happen
+* editing/quoting old posts reveals trash html code for formatting
