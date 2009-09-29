@@ -137,13 +137,17 @@ ul.sidebarlist {
 
 /* INDEX */
 
-.table_controls .forum_marker, .table_controls .pager, .threadControls .pager, .threadControls .firstNotReadLink, .postNextPrev {
+.table_controls .forum_marker, .table_controls .pager, .threadControls .pager, .threadControls .firstNotReadLink {
   float: right;
   font-size: 84%;
 }
 
-.postReportLink {
+.postNextPrev {
   float: right;
+}
+
+.table_controls, .threadControls {
+  padding: .25em 0;
 }
 
 a.newThreadLink, a.newReplyLink {
@@ -151,13 +155,12 @@ a.newThreadLink, a.newReplyLink {
 }
 
 table.forumsTable, table.threadsTable {
-  margin: 1em 0;
+  margin: .25em 0;
   table-layout: fixed;
   width: 100%;
 }
 
 .postBlockWrapper {
-  margin: 1em 0;
   width: 100%;
 }
 .postItemWrapper {
@@ -209,7 +212,6 @@ table.forumsTable td.statsRow, table.forumsTable td.statsSemiRow, table.threadsT
 
 .index_list_forum_title, .threadListThreadTitle, .postTitle {
   background-repeat: no-repeat;
-  padding-left: 18px;
 }
 
 .threadListThreadTitle, .threadListByLine {
@@ -237,7 +239,7 @@ table.threadsTable td span.threadListMovedMessage {
   padding-left: 18px;
 }
 
-.threadDescriptionLine, .postDateLine, .postControlLine {
+.threadDescriptionLine, .postHeadLine, .postControlLine {
   font-size: 84%;
 }
 
@@ -253,11 +255,15 @@ table.threadsTable td span.threadListMovedMessage {
 
 /* ATTACHMENTS */
 
+div.attachmentBlock {
+  background-color: #1d1d1d;
+  padding: .5em .5em .25em .5em;
+}
+
 ul.attachmentList {
-  clear:both;
   list-style: none;
-  margin: 0 0 .5em 0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 ul.attachmentList li {

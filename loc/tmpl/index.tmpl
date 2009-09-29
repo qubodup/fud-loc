@@ -57,7 +57,7 @@
 
 {SECTION: index_forum_entry forum entry row}
 <tr class="{VAR: forum_read_indicator} child-c{VAR: r[5]}" style="display: {IF: empty($collapse[$cid])}table-row{ELSE}none{ENDI}">
-	<td style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '10')}px;"><a {IF: $r[6]}style="background-image: url(images/forum_icons/{VAR: r[6]});"{ENDIF} href="{TEMPLATE: index_forum_entry_lnk}" class="index_list_forum_title">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
+	<td style="padding-left: {FUNC: ($i[0] ? $i[0] * 10 + 10 : '10')}px;"><a {IF: $r[6]}style="background-image: url(images/forum_icons/{VAR: r[6]}); padding-left: 18px;"{ENDIF} href="{TEMPLATE: index_forum_entry_lnk}" class="index_list_forum_title">{VAR: r[10]}</a>{FUNC: ($r[11] ? '<br />'.$r[11] : '')}{VAR: moderators}</td>
 	<td class="statsRow">{VAR: r[12]} {MSG: posts}<br />{VAR: r[13]} {MSG: threads}</td>
 	<td class="dateRow">{IF: $r[8]}<a href="{TEMPLATE: last_post_lnk}">{TEMPLATE: index_last_post_date}</a><br />
 {MSG: by} {IF: $r[3]}{TEMPLATE: profile_link_user}{ELSE}{TEMPLATE: profile_link_anon}{END}
