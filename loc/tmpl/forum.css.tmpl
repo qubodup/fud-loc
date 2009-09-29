@@ -241,6 +241,11 @@ table.threadsTable td span.threadListMovedMessage {
   font-size: 84%;
 }
 
+.postControlLine {
+  clear: both;
+  padding-top: .5em;
+}
+
 .userDropDown {
   display: none;
   visibility: hidden;
@@ -249,18 +254,27 @@ table.threadsTable td span.threadListMovedMessage {
 /* ATTACHMENTS */
 
 ul.attachmentList {
+  clear:both;
   list-style: none;
   margin: 0 0 .5em 0;
   padding:0;
 }
 
 ul.attachmentList li {
+  background-repeat: no-repeat;
+  display: block; 
+  float: left;
   font-size: 84%;
+  margin-right: 1em;
+  padding-left: 20px;
+  white-space: nowrap;
+}
+
+ul.attachmentList li span.attachmentInfo {
+  font-size: 90%;
 }
 
 ul.attachmentList li a {
-  background-repeat: no-repeat;
-  padding-left: 18px;
 }
 
 /* INPUT */
