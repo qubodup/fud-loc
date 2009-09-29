@@ -220,7 +220,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachments the file attachments list}
-<ul class="AttachmentsList">
+<ul class="attachmentList">
 {TEMPLATE-DATA: drawmsg_file_attachments}
 </ul>
 {SECTION: END}
@@ -230,10 +230,7 @@
 {SECTION: END}
 
 {SECTION: dmsg_drawmsg_file_attachment file attachment entry row}
-<li />
-<a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}"><img alt="" src="images/mime/{VAR: v[4]}" class="at" /></a>
-<span class="GenText fb">{MSG: attachment}</span> <a href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a><br />
-<span class="SmallText">({MSG: size} {FUNC: ($sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB')}, {MSG: download_counter})</span>
+<li><a class="attachmentLink" style="background-image: url(images/mime/{VAR: v[4]});" href="{TEMPLATE: dmsg_drawmsg_file_attachment_lnk}">{VAR: v[1]}</a>, {FUNC: ($sz < 1000 ? number_format($sz, 2).'KB' : number_format($sz/1024, 2).'MB')}, {MSG: download_counter}</li>
 {SECTION: END}
 
 {SECTION: dmsg_modified_message_mod modified message indicator}

@@ -14,7 +14,7 @@ current_time:			Current Time
 custom_avatar_queue:		Custom Avatar Queue
 date_posted:			Date Posted
 date_registered:		Date Registered:
-download_counter:		Downloaded {VAR: v[3]} time(s)
+download_counter:		{VAR: v[3]}&#215; downloaded
 pmsg_download_counter:		Downloaded {VAR: r->dlcount} time(s)
 email:				E-mail:
 email_to_friend:		E-mail to friend
