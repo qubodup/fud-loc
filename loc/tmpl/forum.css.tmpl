@@ -41,8 +41,7 @@ body {
 /* LINKS */
 
 a:link, a:visited, a:active, a.PagerLink {
-  /*color: #006699;
-  text-decoration: underline;*/
+  color: #33ccff;
   text-decoration: none;
 }
 
@@ -50,6 +49,25 @@ a:link img, a:visited img {
   /*border-color: black;*/
   border-style: dotted;
   border-width: 0 0 1px 0;
+}
+
+.attachmentBlock a, .postControlLine a, .postNextPrev a, a.postTitle {
+  color: #666666;
+}
+
+.attachmentBlock, .postControlLine, .postDateLine {
+  color: #555555;
+}
+
+.table_controls a, .threadControls a {
+  color: #888888;
+}
+
+a.userNameLink {
+  color: #eeeeee;
+}
+
+.postContentWrapper a {
 }
 
 /* PANEL */
@@ -245,7 +263,7 @@ table.threadsTable td span.threadListMovedMessage {
 
 .postControlLine {
   clear: both;
-  padding-top: .5em;
+  padding-top: .25em;
 }
 
 .userDropDown {
@@ -289,7 +307,7 @@ input.hideShowButton,
 input.headsearchtext, input.headsearchbutton,
 input.threadListAdminButton,
 input.threadListCheck {
-  border: 1px solid #555;
+/*  border: 1px solid #555;*/
   padding: 0 .4em;
 }
 
