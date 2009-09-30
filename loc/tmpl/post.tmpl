@@ -42,7 +42,7 @@
 {SECTION: post_turing_test}
 {MSG: register_turing}{FUNC: get_err('reg_turing')}
 <input type="text" name="turing_test" value="" />
-<div style="white-space: pre;">
+<div>
   {FUNC: generate_turing_val($turing_res)}
   <input type="hidden" name="turing_res" value="{VAR: turing_res}" />
 </div>
@@ -85,9 +85,9 @@
 {SECTION: END}
 
 {SECTION: admin_options options for moderators & admins to create announcements and sticky threads}
-{MSG: post_mod_opt}
-{MSG: post_thread_type} <select name="thr_ordertype">{TEMPLATE-DATA: thread_type_select}</select>
-{MSG: post_thread_expiry} <select name="thr_orderexpiry">{TEMPLATE-DATA: thread_expiry_select}</select>
+<!--{MSG: post_mod_opt}{MSG: post_thread_type}{MSG: post_thread_expiry}-->
+<div><select name="thr_ordertype">{TEMPLATE-DATA: thread_type_select}</select>
+<select name="thr_orderexpiry">{TEMPLATE-DATA: thread_expiry_select}</select></div>
 {SECTION: END}
 
 {SECTION: reg_user_options various options for logged in registered users}
@@ -126,7 +126,7 @@ asd{TEMPLATE: header}asdf
   <div>
   {MSG: post_moderated_forum_ttl}
 		{MSG: post_moderated_forum}
-		<br /><br /><form action="{TEMPLATE: moderated_forum_post_lnk3}" method="post">{DEF: _hs}
+		<form action="{TEMPLATE: moderated_forum_post_lnk3}" method="post">{DEF: _hs}
 		<input type="submit" class="button" name="proceed" value="{MSG: post_proceed}" />
 		<input type="hidden" name="moderated_redr" value="1" />
 		</form>
@@ -144,25 +144,24 @@ asd{TEMPLATE: header}asdf
 </div>
 <div id="main">
   {TEMPLATE: form_start}
+  <!--{MSG: post_form}{MSG: post_forum}-->
+  <!--<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm_id}">{VAR: frm->name}</a> &raquo; {IF: $th_id}<a href="{ROOT}?t=msg&amp;th_id={VAR: th}"></a> &raquo;{ENDIF}-->
   {IF: _uid}{TEMPLATE: loged_in_user}{ELSE}{MSG: post_not_logged_in}{ENDI}
   {TEMPLATE-DATA: post_error}
-  {TEMPLATE-DATA: preview_message}
-  <!--{MSG: post_form}{MSG: post_forum}-->
-  {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
-  <!--<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm_id}">{VAR: frm->name}</a> &raquo; {IF: $th_id}<a href="{ROOT}?t=msg&amp;th_id={VAR: th}"></a> &raquo;{ENDIF}-->
-  {MSG: post_title} <input type="text" spellcheck="true" maxlength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" />
   {FUNC: get_err('msg_subject')}
+  {TEMPLATE-DATA: preview_message}
+  {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
+  {FUNC: draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''))}
+  <div><label><input type="text" spellcheck="true" maxlength="100" name="msg_subject" value="{VAR: msg_subject}" size="60" tabindex="2" /> {MSG: post_title}</label></div>
   {IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}
-    {MSG: post_descr}<input size="60" type="text" name="msg_tdescr" tabindex="3" value="{VAR: msg_tdescr}" />
+    <div><label><input size="60" type="text" maxlength="200" name="msg_tdescr" tabindex="3" value="{VAR: msg_tdescr}" /> {MSG: post_descr}</label></div>
   {ENDIF}
   {TEMPLATE-DATA: poll}
   {TEMPLATE-DATA: admin_options}
-  {FUNC: draw_post_icons((isset($_POST['msg_icon']) ? $_POST['msg_icon'] : ''))}
   {IF: $perms & 16384}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
   {IF: $frm->forum_opt & 16}{TEMPLATE: fud_code_icons}{ENDIF}
-  {MSG: post_body}
-  {FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" name="msg_body" class="resizable" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}
-  </textarea>
+  {FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="70" tabindex="4" wrap="virtual" id="txtb" name="msg_body" class="resizable" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea>
+  <!--{MSG: post_body}-->
   {VAR: frm->id} {VAR: frm->name}
   {TEMPLATE: resize_controls}
   {TEMPLATE-DATA: file_attachments}
