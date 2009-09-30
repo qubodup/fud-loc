@@ -74,6 +74,7 @@ a.userNameLink {
 
 #panel {
   border-bottom: 1px solid #333333;
+  font-size: 84%;
   padding: 3px;
 }
 
@@ -131,6 +132,7 @@ ul.sidebarlist {
   /*border: 1px solid #333;*/
   list-style: none;
   margin: 0 0 .5em 0;
+  overflow: hidden;
   padding:0;
 }
 
@@ -158,14 +160,17 @@ ul.sidebarlist {
 .table_controls .forum_marker, .table_controls .pager, .threadControls .pager, .threadControls .firstNotReadLink {
   float: right;
   font-size: 84%;
+  margin-right: .5em;
 }
 
 .postNextPrev {
   float: right;
+  margin-right: .5em;
 }
 
 .table_controls, .threadControls {
   padding: .25em 0;
+  overflow: hidden;
 }
 
 a.newThreadLink, a.newReplyLink {
@@ -204,8 +209,12 @@ table.forumsTable td, table.threadsTable td {
 
 table.forumsTable td.dateRow, table.forumsTable td.hideRow, table.threadsTable td.dateRow {
   font-size: 84%;
-  padding-left: 1em;
+  padding-left: .5em;
   width: 12%;
+}
+
+table.threadsTable td.descriptionRow {
+  padding-left: .5em;
 }
 
 table.forumsTable td.statsRow, table.forumsTable td.statsSemiRow, table.threadsTable td.statsRow {
@@ -259,6 +268,7 @@ table.threadsTable td span.threadListMovedMessage {
 
 .threadDescriptionLine, .postHeadLine, .postControlLine {
   font-size: 84%;
+  overflow: hidden;
 }
 
 .postControlLine {

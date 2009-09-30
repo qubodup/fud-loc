@@ -25,19 +25,19 @@
 {REF: thread_view_common.tmpl}
 
 {SECTION: mini_thread_pager}
-<span>(<img src="{THEME_IMAGE_ROOT}/pager.gif" alt="" />{TEMPLATE-DATA: mini_pager_data})</span>
+<span>( {TEMPLATE-DATA: mini_pager_data})</span>
 {SECTION: END}
 
 {SECTION: mini_pager_entry}
-&nbsp;<a href="{TEMPLATE: mini_pager_entry_lnk}">{FUNC: ++$i}</a>
+<a href="{TEMPLATE: mini_pager_entry_lnk}">{FUNC: ++$i}</a>&nbsp;
 {SECTION: END}
 
 {SECTION: mini_pager_limiter}
-&nbsp;...
+...&nbsp;
 {SECTION: END}
 
 {SECTION: first_unread_msg_link}
-<a href="{TEMPLATE: first_unread_msg_link_lnk}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" title="{MSG: thread_first_unread_msg}" alt="" /></a>&nbsp;
+<a href="{TEMPLATE: first_unread_msg_link_lnk}"><img src="{THEME_IMAGE_ROOT}/newposts.gif" title="{MSG: thread_first_unread_msg}" alt="" /></a>
 {SECTION: END}
 
 {SECTION: threaded_view tree view link}
@@ -71,13 +71,15 @@
 {SECTION: thread_row}
 <tr class="{TEMPLATE-DATA: thread_read_status}">
 <td>
-<a class="threadListThreadTitle" {IF: $r[3]}style="background-image: url(images/message_icons/{VAR: r[3]}); padding-left: 18px;"{ENDIF} href="{TEMPLATE: first_unread_msg_link_lnk}">{VAR: r[2]}</a><br/>
+
+<a class="threadListThreadTitle" {IF: $r[3]}style="background-image: url(images/message_icons/{VAR: r[3]}); padding-left: 18px;"{ENDIF} href="{IF: $first_unread_msg_link}{TEMPLATE: first_unread_msg_link_lnk}{ELSE}{TEMPLATE: thread_row_lnk}{ENDI}">{VAR: r[2]}</a><br/>
 <span class="threadListByLine">
 {IF: ($r[18] > 1)}{IF: $r[18] & 4}<img src="{THEME_IMAGE_ROOT}/thread_sticky.gif" alt="{MSG: sticky}" />{ELSE}<img src="{THEME_IMAGE_ROOT}/thread_announcement.gif" title="{MSG: thread_announcement}" alt="{MSG: thread_announcement}" />{ENDI} {ENDIF}{IF: $r[1]}<img src="{THEME_IMAGE_ROOT}/thread_poll.gif" alt="{MSG: poll}" /> {ENDIF}{IF: $r[0]}<img src="{THEME_IMAGE_ROOT}/thread_attachment.gif" alt="{TEMPLATE: thread_attach_indicator}" />{ENDIF}
-{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <a href="{TEMPLATE: thread_row_lnk}">{TEMPLATE: thread_first_post_date}</a></span></td>
+{MSG: by} {IF: $r[5]}{TEMPLATE: first_post_reg_user_link}{ELSE}{TEMPLATE: first_post_unreg_user_link}{END} {MSG: thread_on} <a href="{TEMPLATE: thread_row_lnk}">{TEMPLATE: thread_first_post_date}</a>
+{TEMPLATE-DATA: mini_thread_pager}
+</span></td>
 <td class="descriptionRow">
-{IF: $r[22]}<span>{VAR: r[22]}</span>{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF} {TEMPLATE-DATA: mini_thread_pager}
-<div><span></span></div>
+{IF: $r[22]}{VAR: r[22]}{ENDIFI} {IF: (($FUD_OPT_2 & 4096) && $r[17])}{TEMPLATE: thread_rating}{ENDIF}
 {TEMPLATE-DATA: admin_control_row}
 </td>
 <td class="statsRow">{VAR: r[16]} {MSG: replies}<br />

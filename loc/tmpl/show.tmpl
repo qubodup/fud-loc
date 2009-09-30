@@ -17,7 +17,7 @@
 	<li><a href="{TEMPLATE: show_links_lnk2}">{MSG: mnav_title}</a></li>
 	<li><a href="{TEMPLATE: show_links_lnk}" title="{MSG: todays_posts_desc}">{MSG: todays_posts}</a></li>
 	{IF: _uid}{TEMPLATE: unread_posts}{ENDIF}
-	{IF: !$th}{TEMPLATE: unanswered_posts}{ENDIF}
+	{TEMPLATE: unanswered_posts}
 	<li><a href="{TEMPLATE: show_links_lnk1}">{MSG: show_pollist}</a></li>
 </ul>
 {MAIN_SECTION: END}

@@ -352,7 +352,7 @@ post_logedin_user:		Logged in user:
 post_logout:			logout
 post_passwd:			Posting Password:
 post_poll:			Poll:
-post_create_poll:		CREATE POLL
+post_create_poll:		create poll
 post_poll_delete:		delete
 post_poll_edit:			edit
 post_mod_opt:			Moderator Options:
@@ -673,14 +673,14 @@ tree_title:			{VAR: frm->name} =&gt; {VAR: frm->subject}
 remail_emailsent:		E-mail was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
-post_opt_html_on:		HTML is ON
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode is ON</a>
-post_opt_images_on:		Images are ON
-post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank">Smilies are ON</a>
-post_opt_html_off:		HTML code is OFF
-post_opt_fud_off:		FUDcode is OFF
-post_opt_images_off:		Images are OFF
-post_opt_smilies_off:		Smilies are OFF
+post_opt_html_on:		HTML formatting
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode formatting</a>
+post_opt_images_on:		Images active
+post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank">Smilies</a> active
+post_opt_html_off:		HTML formatting off
+post_opt_fud_off:		no FUDcode
+post_opt_images_off:		Images not allowed
+post_opt_smilies_off:		Smilies not allowed
 post_opt:			Forum Options
 register_change_passwd:		change password
 install_script_present_error:	For security reasons, you must remove the installation script at {GVAR: WWW_ROOT_DISK}install.php before you can use the forum.
