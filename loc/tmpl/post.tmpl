@@ -69,7 +69,7 @@
 {SECTION: END}
 
 {SECTION: loged_in_user shows who you're logged in as and offers a logout link}
-{MSG: post_logedin_user}{VAR: usr->alias}<!--<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>-->
+<!--{MSG: post_logedin_user}{VAR: usr->alias}<a href="{TEMPLATE: loged_in_user_lnk}">{MSG: post_logout}</a>-->
 {SECTION: END}
 
 {SECTION: post_password if password posting enable this allows the user to enter a password}
@@ -144,13 +144,14 @@ asd{TEMPLATE: header}asdf
 </div>
 <div id="main">
   {TEMPLATE: form_start}
+  {IF: _uid}{TEMPLATE: loged_in_user}{ELSE}{MSG: post_not_logged_in}{ENDI}
   {TEMPLATE-DATA: post_error}
   {TEMPLATE-DATA: preview_message}
-  {MSG: post_form}
-  {IF: _uid}{TEMPLATE: loged_in_user}{ELSE}{MSG: post_not_logged_in}{ENDI}
+  <!--{MSG: post_form}{MSG: post_forum}-->
   {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
-  {MSG: post_forum}{VAR: frm->name}
-  {MSG: post_title}<input type="text" spellcheck="true" maxlength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" /> {FUNC: get_err('msg_subject')}
+  <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm_id}">{VAR: frm->name}</a> &raquo; {IF: $th_id}<a href="{ROOT}?t=msg&amp;th_id={VAR: th}"></a> &raquo;{ENDIF}
+  {MSG: post_title} <input type="text" spellcheck="true" maxlength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" />
+  {FUNC: get_err('msg_subject')}
   {IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}
     {MSG: post_descr}<input size="60" type="text" name="msg_tdescr" tabindex="3" value="{VAR: msg_tdescr}" />
   {ENDIF}
@@ -160,9 +161,10 @@ asd{TEMPLATE: header}asdf
   {IF: $perms & 16384}{FUNC: draw_post_smiley_cntrl()}{ENDIF}
   {IF: $frm->forum_opt & 16}{TEMPLATE: fud_code_icons}{ENDIF}
   {MSG: post_body}
-  {FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" name="msg_body" class="resizable" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea>
+  {FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="65" tabindex="4" wrap="virtual" id="txtb" name="msg_body" class="resizable" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}
+  </textarea>
+  {VAR: frm->id} {VAR: frm->name}
   {TEMPLATE: resize_controls}
-
   {TEMPLATE-DATA: file_attachments}
   {IF: !_uid && $FUD_OPT_3 & 8192}{TEMPLATE: post_turing_test}{ENDIF}
   {MSG: post_options}
