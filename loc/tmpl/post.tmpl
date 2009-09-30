@@ -149,7 +149,7 @@ asd{TEMPLATE: header}asdf
   {TEMPLATE-DATA: preview_message}
   <!--{MSG: post_form}{MSG: post_forum}-->
   {IF: $frm->forum_opt & 4 && !$is_a}{TEMPLATE: post_password}{ENDIF}
-  <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm_id}">{VAR: frm->name}</a> &raquo; {IF: $th_id}<a href="{ROOT}?t=msg&amp;th_id={VAR: th}"></a> &raquo;{ENDIF}
+  <!--<a href="{ROOT}?t=thread&amp;frm_id={VAR: frm_id}">{VAR: frm->name}</a> &raquo; {IF: $th_id}<a href="{ROOT}?t=msg&amp;th_id={VAR: th}"></a> &raquo;{ENDIF}-->
   {MSG: post_title} <input type="text" spellcheck="true" maxlength="100" name="msg_subject" value="{VAR: msg_subject}" size="50" tabindex="2" />
   {FUNC: get_err('msg_subject')}
   {IF: !$th_id || ($msg_id && $msg_id == $thr->root_msg_id)}

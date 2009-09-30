@@ -378,7 +378,7 @@ disable_smilies:		Disable smilies in this message.
 spell_check_msg:		Spell-check Message
 post_form:			Post Form
 post_forum:			Forum:
-post_title:			Title:
+post_title:			Title
 post_body:			Body:
 post_options:			Options:
 post_preview_btn:		Preview Message
