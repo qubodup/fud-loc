@@ -337,8 +337,8 @@ add:				Add
 buddy_search:			Enter the login of the user you wish to add.
 member_search:			<br />Or use the <a href="javascript://" onClick="javascript: window_open(\'{FULL_ROOT}{ROOT}?t=pmuserloc&amp;{DEF: _rsid}&amp;js_redr=buddy_add.add_login&amp;overwrite=1\', \'user_list\', 325,250);">Find User</a> feature to find a person.
 buddy_remove:			remove
-post_normal:			Normal
-post_sticky:			Sticky
+post_normal:			Normal thread
+post_sticky:			Sticky thread
 post_annoncement:		Announcement
 post_size:			Size
 post_color:			Color
@@ -359,8 +359,8 @@ post_mod_opt:			Moderator Options:
 post_thread_type:		Topic Type:
 post_thread_expiry:		Topic Expiration:
 post_locked:			Topic Locked
-post_icons:			Message Icon:
-post_no_icon:			No Icon
+post_icons:			Icon
+post_no_icon:		none
 post_smiley:			Smiley Shortcuts:
 post_format_tools:		Formatting Tools:
 post_upload_file:		Upload File
@@ -379,7 +379,7 @@ spell_check_msg:		Spell-check Message
 post_form:			Post Form
 post_forum:			Forum:
 post_title:			Title
-post_body:			Body:
+post_body:			Post
 post_options:			Options:
 post_preview_btn:		Preview Message
 ignore_users:			Ignored Users
@@ -674,11 +674,11 @@ remail_emailsent:		E-mail was sent
 remail_email:			Hello,\n\nThere is an interesting topic about "{VAR: data->subject}" on {GVAR: FORUM_TITLE} forum that you may to want read. You can see the topic at:\n {FULL_ROOT}{ROOT}?t=rview&amp;th={VAR: data->id}&amp;rid={DEF: _uid}\n\nYour friend,\n\n{VAR: usr->alias}\n
 poll_add_option:		Add Option:
 post_opt_html_on:		HTML formatting
-post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">FUDcode formatting</a>
+post_opt_fud_on:		<a href="{TEMPLATE: post_opt_fud_on_lnk}" target="_blank">BBCode formatting</a>
 post_opt_images_on:		Images active
 post_opt_smilies_on:		<a href="{TEMPLATE: post_opt_smilies_on_lnk}" target="_blank">Smilies</a> active
 post_opt_html_off:		HTML formatting off
-post_opt_fud_off:		no FUDcode
+post_opt_fud_off:		no BBCode
 post_opt_images_off:		Images not allowed
 post_opt_smilies_off:		Smilies not allowed
 post_opt:			Forum Options
@@ -751,21 +751,21 @@ userinfo_referals_count:	{VAR: referals} Members
 pm_no_space_title:		No space left!
 pm_no_space_msg:		Your private message folders exceed the allowed storage size of {GVAR: MAX_PMSG_FLDR_SIZE} bytes. They currently contain {VAR: fldr_size} bytes worth of messages.<br /><br /><span class="ErrorText">Remove some old messages to clear up space.</span>.
 pm_space_indct_msg:		Your private message folders are {VAR: percent_full}% full.
-th_expr_never:			Never
-th_expr_one_hr:			1 Hour
-th_expr_three_hr:		3 Hours
-th_expr_four_hr:		4 Hours
-th_expr_eight_hr:		8 Hours
-th_expr_sixteen_hr:		16 Hours
-th_expr_one_day:		1 Day
-th_expr_two_day:		2 Days
-th_expr_four_day:		4 Days
-th_expr_one_week:		1 Week
-th_expr_two_week:		2 Weeks
-th_expr_one_month:		1 Month
-th_expr_two_month:		2 Month
-th_expr_four_month:		4 Month
-th_expr_one_year:		1 Year
+th_expr_never:			Expires never
+th_expr_one_hr:			After 1 hour
+th_expr_three_hr:		After 3 hours
+th_expr_four_hr:		After 4 hours
+th_expr_eight_hr:		After 8 hours
+th_expr_sixteen_hr:		After 16 hours
+th_expr_one_day:		After 1 day
+th_expr_two_day:		After 2 days
+th_expr_four_day:		After 4 days
+th_expr_one_week:		After 1 week
+th_expr_two_week:		After 2 weeks
+th_expr_one_month:		After 1 month
+th_expr_two_month:		After 2 month
+th_expr_four_month:		After 4 month
+th_expr_one_year:		After 1 year
 thread_mod_delete:		delete
 action_latest_post:		Last Message
 online_today_last_visit:	Last Visited
@@ -1042,7 +1042,7 @@ topic_rating:			{VAR: frm->rating} from {VAR: frm->n_rating} votes
 topic_list_rating:		{VAR: r[17]} from {VAR: r[21]} votes
 tabs_notifications:		Notifications
 finduser_flag:			Flag
-post_descr:			Topic Description:
+post_descr:			Description
 pmsg_on				on
 pmsg_download_dump:		Download Message Dump
 move_messages:			move posts
