@@ -16,13 +16,14 @@
 {SECTION: END}
 
 {SECTION: post_smilies}
-{MSG: post_smiley}
-<span>[<a href="javascript://" onclick="window_open(\'{TEMPLATE: post_smilies_lnk1}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>]</span>
-{TEMPLATE-DATA: data}
+<div>{TEMPLATE-DATA: data}
+<a href="javascript://" onclick="window_open(\'{TEMPLATE: post_smilies_lnk1}\', \'sml_list\', 220, 200);">{MSG: post_list_smilies}</a>
+<!--{MSG: post_smiley}-->
+</div>
 {SECTION: END}
 
 {SECTION: fud_code_icons shortcuts to various FUDcode text formatting tools}
-{MSG: post_format_tools}
+<!--{MSG: post_format_tools}-->
 <a title="{MSG: post_common_bold}" accesskey="b" href="javascript: insertTag(document.post_form.msg_body, \'[B]\', \'[/B]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_bold.gif" /></a>
 <a title="{MSG: post_common_italics}" accesskey="i" href="javascript: insertTag(document.post_form.msg_body, \'[I]\', \'[/I]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_italic.gif" /></a>
 <a title="{MSG: post_common_underline}" accesskey="u" href="javascript: insertTag(document.post_form.msg_body, \'[U]\', \'[/U]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_underline.gif" /></a>
@@ -36,10 +37,6 @@
 <a title="{MSG: post_common_blist}" href="javascript: window_open(\'{TEMPLATE: fud_code_icons_lnk2}\', \'listmaker\', 350, 350);"><img alt="" src="{THEME_IMAGE_ROOT}/b_bulletlist.gif" /></a>
 <a title="{MSG: post_common_quote}" accesskey="q" href="javascript: insertTag(document.post_form.msg_body, \'[QUOTE]\', \'[/QUOTE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_quote.gif" /></a>
 <a title="{MSG: post_common_code}" accesskey="c" href="javascript: insertTag(document.post_form.msg_body, \'[CODE]\', \'[/CODE]\');"><img alt="" src="{THEME_IMAGE_ROOT}/b_code.gif" /></a>
-
-
-
-&nbsp;&nbsp;
 <select name="fnt_size" onchange="insertTag(document.post_form.msg_body, \'[SIZE=\'+document.post_form.fnt_size.options[this.selectedIndex].value+\']\', \'[/SIZE]\'); document.post_form.fnt_size.options[0].selected=true">
 <option value="" selected="selected">{MSG: post_size}</option>
 <option value="1">1</option>
@@ -104,10 +101,12 @@
 {SECTION: END}
 
 {SECTION: resize_controls}
-<a href="javascript://" onclick="rs_txt_box(50, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hb.gif" style="margin: 2px" /></a><br />
-<a href="javascript://" onclick="rs_txt_box(0, 100);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vb.gif" style="margin: 2px" /></a><br />
-<a href="javascript://" onclick="rs_txt_box(-50, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hs.gif" style="margin: 2px" /></a><br />
-<a href="javascript://" onclick="rs_txt_box(0, -100);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_vs.gif"style="margin: 2px" /></a><br /> 
+<div class="growShrink">
+<!--<a href="javascript://" onclick="rs_txt_box(50, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hb.gif" style="margin: 2px" /></a>
+<a href="javascript://" onclick="rs_txt_box(-50, 0);"><img alt="" src="{THEME_IMAGE_ROOT}/rs_hs.gif" style="margin: 2px" /></a>-->
+<a href="javascript://" onclick="rs_txt_box(0, 100);">grow</a>
+<a href="javascript://" onclick="rs_txt_box(0, -100);">shrink</a>
+</div>
 {SECTION: END}
 
 {SECTION: common_javascript}
@@ -158,20 +157,20 @@ function endDrag(e) {
 {SECTION: END}
 
 {SECTION: attached_file}
-
 	{VAR: r[2]}
 	{VAR: sz}
 	<a href="javascript: document.forms[\'post_form\'].file_del_opt.value=\'{VAR: r[0]}\'; document.forms[\'post_form\'].submit();">{MSG: post_file_del}</a>{TEMPLATE-DATA: insert_uploaded_image}
-
 {SECTION: END}
 
 {SECTION: upload_file}
+<div>
 <input type="file" name="attach_control"> <input type="submit" class="button" name="attach_control_add" value="{MSG: post_upload_file}" />
 <input type="hidden" name="tmp_f_val" value="1" />
+</div>
 {SECTION: END}
 
 {SECTION: attached_status count of already attached files}
-<span class="SmallText"> {MSG: post_cur_attached}
+{MSG: post_cur_attached}
 {SECTION: END}
 
 {SECTION: attachment_list list of all the attached files}
@@ -186,13 +185,15 @@ function endDrag(e) {
 {SECTION: END}
 
 {SECTION: file_attachments}
-{MSG: file_attachments}
+<div>
+<!--{MSG: file_attachments}-->
 {TEMPLATE: attachment_list}
 {VAR: attach_control_error}
-<span class="SmallText">{MSG: allowed_files} {TEMPLATE-DATA: allowed_extensions}<br />{MSG: max_file_size} {VAR: max_as}Kb<br />{MSG: max_files_per_msg} {VAR: max_a}
-{IF: $i}{TEMPLATE: attached_status}{ENDIFI}
-</span><p />
 {IF: (($i + 1) <= $max_a)}{TEMPLATE: upload_file}{ENDIF}
+<div class="fileUplaodDetails">{MSG: max_files_per_msg} {VAR: max_a} {IF: $allowed_extensions == $post_proc_all_ext_allowed}{TEMPLATE-DATA: allowed_extensions}<!--{MSG: allowed_files}-->{ENDIF} {MSG: max_file_size} {VAR: max_as}Kb
+</div>
+{IF: $i}{TEMPLATE: attached_status}{ENDIFI}
+</div>
 {SECTION: END}
 
 {SECTION: post_proc_all_ext_allowed}

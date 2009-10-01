@@ -361,20 +361,20 @@ post_thread_expiry:		Topic Expiration:
 post_locked:			Topic Locked
 post_icons:			Icon
 post_no_icon:		none
-post_smiley:			Smiley Shortcuts:
-post_format_tools:		Formatting Tools:
+post_smiley:			Smileys:
+post_format_tools:		Formatting:
 post_upload_file:		Upload File
 post_file_del:			Delete
 post_file_name:			Name
 post_file_size:			Size
 file_attachments:		File Attachments:
 allowed_files:			Allowed File Extensions:
-max_file_size:			Maximum File Size:
-max_files_per_msg:		Maximum Files Per Message:
+max_file_size:			Files a
+max_files_per_msg:		Maximally
 post_notification:		Post Notification
-include_sig:			Include Signature
-include_sig_desc:		Include your profile signature.
-disable_smilies:		Disable smilies in this message.
+include_sig:			Signature
+include_sig_desc:		Include your profile signature
+disable_smilies:		No smilies
 spell_check_msg:		Spell-check Message
 post_form:			Post Form
 post_forum:			Forum:
@@ -793,7 +793,7 @@ quicklogin_password:		Password
 quicklogin_use_cookies:		Use Cookies?
 quicklogin_login_btn:		Login
 post_notification_desc:		Notify me when someone replies to this message.
-post_all_ext_allowed:		(unrestricted)
+post_all_ext_allowed:		all
 maximize_category:		show
 maximize_message:		Maximize Message
 no_view_perm:			You do not have appropriate permissions needed to see this topic.
@@ -816,7 +816,7 @@ post_cur_attached:		currently attached {VAR: i} file(s)
 ignored_anon_post:		{GVAR: ANON_NICK} is ignored
 ignored_user_post:		Message by <a href="{TEMPLATE: ignored_user_post_lnk}">{VAR: obj->login}</a> is ignored
 smladd_close_window:		close window
-post_list_smilies:		list all smilies
+post_list_smilies:		All smilies
 p_VISIBLE:			Visible
 reported_in_thread:		In
 help_back_to_top:		back to top
