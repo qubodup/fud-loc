@@ -77,7 +77,8 @@
 {SECTION: END}
 
 {SECTION: create_poll}
-{MSG: post_poll}<a href="javascript://" accesskey="o" onclick="window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);">{MSG: post_create_poll}</a>
+<div><!--{MSG: post_poll}-->
+<input type="button" href="javascript://" accesskey="o" onclick="window_open(\'{TEMPLATE: create_poll_lnk1}\', \'poll_creator\', 400, 300);" value="{MSG: post_create_poll}"></div>
 {SECTION: END}
 
 {SECTION: edit_poll}
@@ -91,22 +92,20 @@
 {SECTION: END}
 
 {SECTION: reg_user_options various options for logged in registered users}
-<input type="checkbox" name="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked="checked"{ENDIFI} />{MSG: post_notification}
-{MSG: post_notification_desc}
-<input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked="checked"{ENDIFI} />{MSG: include_sig}
-{MSG: include_sig_desc}<
+<li><label title="{MSG: post_notification_desc}"><input type="checkbox" name="msg_poster_notif" value="Y"{IF: $msg_poster_notif} checked="checked"{ENDIFI} />{MSG: post_notification}</label></li>
+<li><label title="{MSG: include_sig_desc}"><input type="checkbox" name="msg_show_sig" value="Y"{IF: $msg_show_sig} checked="checked"{ENDIFI} />{MSG: include_sig}</label></li>
 {TEMPLATE-DATA: mod_post_opts}
 {IF: $perms & 64 && (!$th_id || $msg_id == $thr->root_msg_id)}
-	<input type="checkbox" name="thr_always_on_top" value="Y"{IF: $thr_always_on_top} checked="checked"{ENDIFI} />{MSG: post_always_on_top}
+	<li><label><input type="checkbox" name="thr_always_on_top" value="Y"{IF: $thr_always_on_top} checked="checked"{ENDIFI} />{MSG: post_always_on_top}</label></li>
 {ENDIFI}
 {SECTION: END}
 
 {SECTION: mod_post_opts}
-<input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked} />{MSG: post_locked}
+<li><label><input type="checkbox" name="thr_locked" value="Y"{VAR: thr_locked_checked} />{MSG: post_locked}</label></li>
 {SECTION: END}
 
 {SECTION: disable_smileys}
-<input type="checkbox" name="msg_smiley_disabled" value="Y"{IF: $msg_smiley_disabled} checked="checked"{ENDIFI} />{MSG: disable_smilies}
+<li><label><input type="checkbox" name="msg_smiley_disabled" value="Y"{IF: $msg_smiley_disabled} checked="checked"{ENDIFI} />{MSG: disable_smilies}</label></li>
 {SECTION: END}
 
 {SECTION: spell_check_button}
@@ -166,9 +165,11 @@ asd{TEMPLATE: header}asdf
   {TEMPLATE: resize_controls}
   {TEMPLATE-DATA: file_attachments}
   {IF: !_uid && $FUD_OPT_3 & 8192}{TEMPLATE: post_turing_test}{ENDIF}
-  <div>{MSG: post_options}
+  <div id="postOptions"><!--{MSG: post_options}-->
+  <ul>
   {IF: _uid}{TEMPLATE: reg_user_options}{ENDIF}
   {IF: $perms & 16384}{TEMPLATE: disable_smileys}{ENDIF}
+  </ul>
   </div>
   <input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="document.forms['post_form'].submitted.value=1;" />
   {TEMPLATE-DATA: minimsg}

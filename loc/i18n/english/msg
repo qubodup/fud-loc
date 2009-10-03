@@ -358,7 +358,7 @@ post_poll_edit:			edit
 post_mod_opt:			Moderator Options:
 post_thread_type:		Topic Type:
 post_thread_expiry:		Topic Expiration:
-post_locked:			Topic Locked
+post_locked:			Locked
 post_icons:			Icon
 post_no_icon:		none
 post_smiley:			Smileys:
@@ -371,7 +371,7 @@ file_attachments:		File Attachments:
 allowed_files:			Allowed File Extensions:
 max_file_size:			Files a
 max_files_per_msg:		Maximally
-post_notification:		Post Notification
+post_notification:		Notification
 include_sig:			Signature
 include_sig_desc:		Include your profile signature
 disable_smilies:		No smilies

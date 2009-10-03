@@ -190,7 +190,7 @@ function endDrag(e) {
 {TEMPLATE: attachment_list}
 {VAR: attach_control_error}
 {IF: (($i + 1) <= $max_a)}{TEMPLATE: upload_file}{ENDIF}
-<div class="fileUplaodDetails">{MSG: max_files_per_msg} {VAR: max_a} {IF: $allowed_extensions == $post_proc_all_ext_allowed}{TEMPLATE-DATA: allowed_extensions}<!--{MSG: allowed_files}-->{ENDIF} {MSG: max_file_size} {VAR: max_as}Kb
+<div id="fileUploadDetails">{MSG: max_files_per_msg} {VAR: max_a} {IF: $allowed_extensions == $post_proc_all_ext_allowed}{TEMPLATE-DATA: allowed_extensions}<!--{MSG: allowed_files}-->{ENDIF} {MSG: max_file_size} {VAR: max_as}Kb
 </div>
 {IF: $i}{TEMPLATE: attached_status}{ENDIFI}
 </div>
