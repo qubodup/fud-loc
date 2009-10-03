@@ -112,7 +112,7 @@ forum_no_messages
 </div>
 <div id="main">
 	<!--{IF: _uid}<div><span id="welcome_message_user">{MSG: welcome_message}</span></div>{ENDIF}-->
-	{TEMPLATE: table_controls}
+	{TEMPLATE: tableControls}
 	<table class="forumsTable">
 		<!--<tr>
 			<th>{MSG: index_forum}</th>
@@ -121,7 +121,7 @@ forum_no_messages
 		</tr>-->
 		{TEMPLATE-DATA: forum_list_table_data}
 	</table>
-	{TEMPLATE: table_controls}
+	{TEMPLATE: tableControls}
 	{IF: __fud_real_user__}{TEMPLATE: quick_login_loged_in}{ELSE}{TEMPLATE: quick_login_on}{END}
 	<!--{TEMPLATE: curtime}
 	{TEMPLATE-DATA: page_stats}-->
@@ -130,12 +130,12 @@ forum_no_messages
 	{TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: table_controls}
-	<div class="table_controls">
+{SECTION: tableControls}
+	<div class="tableControls">
 		{IF: cat_path == 0 }<a href="{TEMPLATE: idx_cat_path_lnk}">{MSG: home}</a>{ENDIF}
 		{TEMPLATE-DATA: cat_path}
 		{IF: _uid}
-			<a class="forum_marker" href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>
+			<a class="forumMarker" href="{TEMPLATE: mark_all_read_lnk}" title="{MSG: mark_all_read_desc}">{MSG: mark_all_read}</a>
 		{ENDIF}
 	</div>
 {SECTION: END}

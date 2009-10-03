@@ -127,11 +127,11 @@
   {TEMPLATE: subscribe}
 </div>
 <div id="main">
-{TEMPLATE: table_controls}
-{TEMPLATE: table_controls_2}
+{TEMPLATE: tableControls}
+{TEMPLATE: tableControls_2}
 {TEMPLATE: thread_list}
-{TEMPLATE: table_controls_2}
-{TEMPLATE: table_controls}
+{TEMPLATE: tableControls_2}
+{TEMPLATE: tableControls}
 <!--{FUNC: tmpl_create_forum_select((isset($frm->forum_id) ? $frm->forum_id : $frm->id), $usr->users_opt & 1048576)}-->
   <!--{TEMPLATE: curtime}
   {TEMPLATE-DATA: page_stats}-->
@@ -140,15 +140,15 @@
 {TEMPLATE: footer}
 {PAGE: END}
 
-{SECTION: table_controls}
-<div class="table_controls">
+{SECTION: tableControls}
+<div class="tableControls">
 {FUNC: draw_forum_path($frm->cat_id)} &#187; <a href="{ROOT}?t=thread&amp;frm_id={VAR: frm->id}&amp;{DEF: _rsid}">{VAR: frm->name}</a>
 {TEMPLATE-DATA: page_pager}
 </div>
 {SECTION: END}
 
-{SECTION: table_controls_2}
-<div class="table_controls">
+{SECTION: tableControls_2}
+<div class="tableControls">
 {TEMPLATE: new_thread_link}
 {TEMPLATE: thread_mark_all_read}
 </div>
