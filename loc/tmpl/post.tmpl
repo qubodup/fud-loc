@@ -162,6 +162,7 @@ asd{TEMPLATE: header}asdf
   {IF: $frm->forum_opt & 16}{TEMPLATE: fud_code_icons}{ENDIF}
   {FUNC: get_err('msg_body', 1)}<textarea rows="20" cols="70" tabindex="4" wrap="virtual" id="txtb" name="msg_body" class="resizable" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);">{VAR: msg_body}</textarea>
   <!--{MSG: post_body}-->
+  <div id="belowTextArea">
   {TEMPLATE: resize_controls}
   {TEMPLATE-DATA: file_attachments}
   {IF: !_uid && $FUD_OPT_3 & 8192}{TEMPLATE: post_turing_test}{ENDIF}
@@ -170,6 +171,7 @@ asd{TEMPLATE: header}asdf
   {IF: _uid}{TEMPLATE: reg_user_options}{ENDIF}
   {IF: $perms & 16384}{TEMPLATE: disable_smileys}{ENDIF}
   </ul>
+  </div>
   </div>
   <input type="submit" accesskey="r" class="button" value="{MSG: post_preview_btn}" tabindex="4" name="preview" />&nbsp;{TEMPLATE-DATA: spell_check_button}<input accesskey="s" type="submit" class="button" tabindex="5" name="btn_submit" value="{VAR: label}" onclick="document.forms['post_form'].submitted.value=1;" />
   {TEMPLATE-DATA: minimsg}
